@@ -6,11 +6,4 @@
     android:layout_height="match_parent"
     tools:context="com.example.abdallah.stormflashinfo.menuActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="325dp"
-        android:layout_height="228dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="40dp" />
 </android.support.constraint.ConstraintLayout>
