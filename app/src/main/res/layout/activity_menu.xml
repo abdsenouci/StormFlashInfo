@@ -52,6 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category1"
+                android:drawableStart="@mipmap/ic_bar"
+                android:drawableLeft="@mipmap/ic_bar"
                 android:paddingHorizontal="15dp"
                 android:text="@string/category1" />
 
@@ -61,6 +63,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category2"
+                android:drawableStart="@mipmap/ic_restaurant"
+                android:drawableLeft="@mipmap/ic_restaurant"
+                android:paddingHorizontal="15dp"
                 android:text="@string/category2" />
 
             <Button
@@ -69,6 +74,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category3"
+                android:drawableStart="@mipmap/ic_culture"
+                android:drawableLeft="@mipmap/ic_culture"
+                android:paddingHorizontal="15dp"
                 android:text="@string/category3" />
 
             <Button
@@ -77,6 +85,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category4"
+                android:drawableStart="@mipmap/ic_sport"
+                android:drawableLeft="@mipmap/ic_sport"
+                android:paddingHorizontal="15dp"
                 android:text="@string/category4" />
 
             <Button
@@ -85,6 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category5"
+                android:drawableStart="@mipmap/ic_concert"
+                android:drawableLeft="@mipmap/ic_concert"
+                android:paddingHorizontal="15dp"
                 android:text="@string/category5" />
 
             <Button
@@ -93,6 +107,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category6"
+                android:drawableStart="@mipmap/ic_boite"
+                android:drawableLeft="@mipmap/ic_boite"
+                android:paddingHorizontal="15dp"
                 android:text="@string/category6" />
 
             <Button
@@ -101,14 +118,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category7"
-                android:text="@string/category7" />
-
-            <Button
-                android:id="@+id/button8"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/category7"
+                android:drawableStart="@mipmap/ic_cinema"
+                android:drawableLeft="@mipmap/ic_cinema"
+                android:paddingHorizontal="15dp"
                 android:text="@string/category7" />
 
 
