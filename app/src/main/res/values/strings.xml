@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">Storm Flash Info</string>
-    <string name="title_activity_category">category</string>
+    <string name="title_activity_category">Category</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
-    <string name="logo_desc">Logo de l\'application</string>
+    <string name="logo_desc">Application logo</string>
+
+    <string name="category1">Bar</string>
+    <string name="category2">Restaurant</string>
+    <string name="category3">Culture</string>
+    <string name="category4">Sport</string>
+    <string name="category5">Concert</string>
+    <string name="category6">NightClub</string>
+    <string name="category7">Cinema</string>
+
+
 
 </resources>
