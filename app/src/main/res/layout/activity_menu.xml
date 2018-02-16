@@ -52,8 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/category1"
-                android:drawableStart="@mipmap/ic_bar"
                 android:drawableLeft="@mipmap/ic_bar"
+                android:drawableStart="@mipmap/ic_bar"
                 android:paddingHorizontal="15dp"
                 android:text="@string/category1" />
 

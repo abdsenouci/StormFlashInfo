@@ -10,21 +10,19 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="408dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
         android:contentDescription="@string/logo_desc"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_layer" />
+        app:srcCompat="@mipmap/logo_sfi" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
