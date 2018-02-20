@@ -55,6 +55,7 @@
                 android:drawableLeft="@mipmap/ic_bar"
                 android:drawablePadding="15dp"
                 android:drawableStart="@mipmap/ic_bar"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
@@ -73,14 +74,14 @@
                 android:drawableLeft="@mipmap/ic_restaurant"
                 android:drawablePadding="15dp"
                 android:drawableStart="@mipmap/ic_restaurant"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingStart="15dp"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
                 android:text="@string/category2"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button3"
@@ -91,14 +92,14 @@
                 android:drawableStart="@mipmap/ic_culture"
                 android:drawablePadding="15dp"
                 android:drawableLeft="@mipmap/ic_culture"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingStart="15dp"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
                 android:text="@string/category3"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button4"
@@ -109,14 +110,14 @@
                 android:drawableStart="@mipmap/ic_sport"
                 android:drawablePadding="15dp"
                 android:drawableLeft="@mipmap/ic_sport"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingStart="15dp"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
                 android:text="@string/category4"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button5"
@@ -127,14 +128,14 @@
                 android:drawableStart="@mipmap/ic_concert"
                 android:drawablePadding="15dp"
                 android:drawableLeft="@mipmap/ic_concert"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingStart="15dp"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
                 android:text="@string/category5"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button6"
@@ -145,14 +146,14 @@
                 android:drawableStart="@mipmap/ic_boite"
                 android:drawablePadding="15dp"
                 android:drawableLeft="@mipmap/ic_boite"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingStart="15dp"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
                 android:text="@string/category6"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button7"
@@ -163,14 +164,14 @@
                 android:drawableStart="@mipmap/ic_cinema"
                 android:drawablePadding="15dp"
                 android:drawableLeft="@mipmap/ic_cinema"
+                android:fontFamily="@font/roboto_bold"
                 android:paddingStart="15dp"
                 android:paddingEnd="50dp"
                 android:paddingLeft="15dp"
                 android:paddingRight="50dp"
                 android:text="@string/category7"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                android:typeface="normal" />
+                android:textSize="24sp" />
 
         </LinearLayout>
     </ScrollView>
