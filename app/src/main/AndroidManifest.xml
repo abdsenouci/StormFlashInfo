@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name=".launcher"
+            android:name=".launcherActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +22,15 @@
             android:name=".menuActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".category"
-            android:label="@string/title_activity_category"/>
+            android:name=".categoryActivity"
+            android:label="@string/title_activity_category" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".BonPlanActivity" />
+        <activity android:name=".LieuActivity"></activity>
     </application>
 
 </manifest>

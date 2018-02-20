@@ -14,6 +14,9 @@
     <string name="category6">NightClub</string>
     <string name="category7">Cinema</string>
 
+    <string name="bonPlanLieu">Lieu :</string>
+    <string name="bonPlanObjet">Objet :</string>
+    <string name="bonPlanDesc">Description :</string>
 
 
 </resources>

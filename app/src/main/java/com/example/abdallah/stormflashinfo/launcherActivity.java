@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 
-public class launcher extends AppCompatActivity {
+public class launcherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class launcher extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(launcher.this, menuActivity.class);
+                Intent intent = new Intent(launcherActivity.this, menuActivity.class);
                 startActivity(intent);
                 finish();
             }
