@@ -12,12 +12,27 @@
 
 
 
-    <color name="category1">#f44336</color>
-    <color name="category2">#ff9d40</color>
-    <color name="category3">#ffcc33</color>
-    <color name="category4">#74c14a</color>
-    <color name="category5">#358f7f</color>
-    <color name="category6">#8856a1</color>
-    <color name="category7">#666666</color>
+    <color name="category0">#f44336</color>
+        <color name="category0Off">#f5554a</color>
+        <color name="category0Btn">#36e7f4</color>
+    <color name="category1">#ff9d40</color>
+        <color name="category1Off">#ffa653</color>
+        <color name="category1Btn">#40ff9d</color>
+    <color name="category2">#ffcc33</color>
+        <color name="category2Off">#ffd147</color>
+        <color name="category2Btn">#cc33ff</color>
+    <color name="category3">#74c14a</color>
+        <color name="category3Off">#81c75c</color>
+        <color name="category3Btn">#c14a74</color>
+    <color name="category4">#358f7f</color>
+        <color name="category4Off">#499a8b</color>
+        <color name="category4Btn">#8f3545</color>
+    <color name="category5">#8856a1</color>
+        <color name="category5Off">#9366aa</color>
+        <color name="category5Btn">#6fa156</color>
+    <color name="category6">#666666</color>
+        <color name="category6Off">#727272</color>
+        <color name="category6Btn">#FEE347</color>
+
 
 </resources>
