@@ -42,6 +42,7 @@ public class categoryActivity extends AppCompatActivity {
         spec.setIndicator("Tab Two");
         host.addTab(spec);
 
+        int[] colors = menuActivity.getColors();
     }
 
     @Override
