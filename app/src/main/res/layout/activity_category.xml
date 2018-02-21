@@ -53,7 +53,7 @@
                     android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:id="@+id/tab1"
+                        android:id="@+id/Bons plan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/white"
@@ -62,7 +62,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/tab2"
+                        android:id="@+id/Lieux"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/white"
@@ -86,7 +86,6 @@
         app:backgroundTint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_marginRight="32dp" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </android.support.constraint.ConstraintLayout>
