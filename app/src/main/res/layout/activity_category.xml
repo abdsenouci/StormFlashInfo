@@ -31,7 +31,7 @@
         </android.support.v7.widget.Toolbar>
 
         <TabHost
-            android:id="@+id/tabHost"
+            android:id="@+id/tabhost"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
@@ -43,7 +43,7 @@
                 android:orientation="vertical">
 
                 <TabWidget
-                    android:id="@android:id/tabs"
+                    android:id="@+id/tabWidget"
                     android:layout_width="match_parent"
                     android:layout_height="26dp" />
 
@@ -53,12 +53,32 @@
                     android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:id="@+id/Bons plan"
+                        android:id="@+id/Bonsplan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/white"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textColor="@android:color/black" />
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textColor="@android:color/black" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -83,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         app:backgroundTint="@android:color/holo_orange_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
