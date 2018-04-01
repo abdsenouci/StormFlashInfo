@@ -25,12 +25,14 @@
             android:name=".categoryActivity"
             android:label="@string/title_activity_category" />
 
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".BonPlanActivity" />
-        <activity android:name=".LieuActivity"></activity>
+        <activity android:name=".LieuActivity" />
+        <activity android:name=".NouveauBonPlanActivity"></activity>
     </application>
 
 </manifest>

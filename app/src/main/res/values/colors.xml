@@ -12,6 +12,7 @@
 
 
 
+
     <color name="category0">#f44336</color>
         <color name="category0Off">#f5554a</color>
         <color name="category0Btn">#36e7f4</color>
@@ -33,6 +34,9 @@
     <color name="category6">#666666</color>
         <color name="category6Off">#727272</color>
         <color name="category6Btn">#FEE347</color>
+
+    <color name="neutreLignes">#A9A9A9</color>
+    <color name="neutreBoutons">#999999</color>
 
 
 </resources>

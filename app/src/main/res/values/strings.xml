@@ -13,7 +13,6 @@
     <string name="jour7">Dimanche</string>
 
 
-
     <string name="logo_desc">Application logo</string>
 
     <string name="category1">Bar</string>
@@ -25,15 +24,18 @@
     <string name="category7">Cinema</string>
 
 
-
     <string name="note">Note</string>
     <string name="adresse">Adresse</string>
     <string name="telephone">Telephone</string>
     <string name="commentaires">Commentaires</string>
     <string name="lieu">Lieu</string>
+    <string name="AjouterLieu">Ajouter Lieu</string>
     <string name="horaires">Horaires</string>
     <string name="objet">Objet</string>
     <string name="description">Description</string>
+    <string name="offreLimitée">Offre limitée</string>
+    <string name="periode">Période</string>
+
 
 
 
