@@ -43,9 +43,11 @@ public class menuActivity extends AppCompatActivity {
         chooseCategory(view, 6);
     }
 
+
     public void chooseCategory(View view, int category) {
-        Intent intent = new Intent(this, categoryActivity.class);
+        Intent intent = new Intent(this, categorieActivity.class);
         intent.putExtra("color",category);
         startActivity(intent);
     }
+
 }
