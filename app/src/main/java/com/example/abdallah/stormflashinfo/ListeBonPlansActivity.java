@@ -53,12 +53,14 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
     public void genererListe()
     {
+        String data;
         for(int i =0;i<BonPlans.size();i++)
         {
             TextView txt = new TextView(this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(10, 5, 5, 10);
-            txt.setText(BonPlans.get(i).ObjBonPlan+"\n"+BonPlans.get(i).DateDeb+"\n"+BonPlans.get(i).DateFin+"\n");
+            data = BonPlans.get(i).ObjBonPlan+"\n"+BonPlans.get(i).DateDeb+"\n"+BonPlans.get(i).DateFin+"\n";
+            txt.setText(data);
             txt.setId(i);
             txt.setBackgroundColor(colors[1]);
             txt.setHeight(200);
