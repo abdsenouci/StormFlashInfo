@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.concurrent.TimeUnit;
 
 
 
@@ -29,7 +30,8 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
 
     //Variables pour le JSON
-    String HttpURL = "http://localhost:8888/StormFlash/BonPlan.php";
+    String HttpURL = "http://10.0.2.2:8888/StormFlash/BonPlan.php";
+
 
     private static void setListe(List<BonPlan> liste)
     {
@@ -47,14 +49,20 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
         new JsonParser(this).execute();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         genererListe();
+
         initColors(colors);
     }
 
     public void genererListe()
     {
         String data;
-        for(int i =0;i<BonPlans.size();i++)
+        for(int i =0; i < BonPlans.size(); i++)
         {
             TextView txt = new TextView(this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -77,7 +85,8 @@ public class ListeBonPlansActivity extends AppCompatActivity
         }
     }
 
-        public void newBonPlan(View view) {
+        public void newBonPlan(View view)
+        {
         Intent intent = new Intent(this, NouveauBonPlanActivity.class);
         intent.putExtra("color",category);
         startActivity(intent);
@@ -110,9 +119,11 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
             HttpServiceClass httpServiceClass = new HttpServiceClass(HttpURL);
 
+
             try
             {
                 httpServiceClass.ExecutePostRequest();
+
 
                 if (httpServiceClass.getResponseCode() == 200)
                 {
@@ -122,12 +133,12 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
                     if (JsonString != null)
                     {
-
                         JSONArray jsonArray = null;
 
                         try
                         {
                             jsonArray = new JSONArray(JsonString);
+
                             JSONObject jsonObject;
 
                             BonPlan bonPlan;
@@ -137,19 +148,16 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
                             for (int i = 0; i < jsonArray.length(); i++)
                             {
-
                                 bonPlan = new BonPlan();
-
                                 jsonObject = jsonArray.getJSONObject(i);
 
-                                bonPlan.ObjBonPlan = jsonObject.getString("ObjBonPlan");
+                                bonPlan.ObjBonPlan = jsonObject.getString("ObjBonPLan");
                                 bonPlan.DateDeb = jsonObject.getString("DateDeb");
                                 bonPlan.DateFin = jsonObject.getString("DateFin");
 
                                 ListBonPlan.add(bonPlan);
 
-
-                                }
+                            }
                         }
 
                         catch (JSONException e)
@@ -159,36 +167,35 @@ public class ListeBonPlansActivity extends AppCompatActivity
                         }
                     }
                 }
-
+                //System.out.println("ONSORTDELABOUCLE2");
                 else
                     {
                         Toast.makeText(context, httpServiceClass.getErrorMessage(), Toast.LENGTH_SHORT).show();
                     }
             }
 
+
             catch (Exception e)
             {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            return null;
-        }
 
-        @Override
-        protected void onPostExecute(Void result)
-
-        {
             if (ListBonPlan != null)
             {
                 ListeBonPlansActivity.setListe(ListBonPlan);
             }
+
+            return null;
         }
+        
     }
 
 
 
 
-    public void initColors(int[] colors){
+    public void initColors(int[] colors)
+    {
         AppBarLayout appBar = findViewById(R.id.appbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
         //FloatingActionButton fbtn = findViewById(R.id.floatingActionButton);
