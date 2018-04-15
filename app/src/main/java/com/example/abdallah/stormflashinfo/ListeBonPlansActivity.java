@@ -113,8 +113,6 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
 
                                 }
-                            genererListe();
-
                         }
 
                         catch (JSONException e)
@@ -147,41 +145,17 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
             //SubjectFullFormListView.setVisibility(View.VISIBLE);
 
-            if (ListBonPlan != null) {
-
-                ListDiff diffusion = new ListAdapter(listeBonPlan, context);
-
-                SubjectFullFormListView.setAdapter(diffusion);
+            if (ListBonPlan != null)
+            {
+                ListDiff diffusion = new ListDiff(ListBonPlan, context);
+                diffusion.genererListe();
+                //SubjectFullFormListView.setAdapter(diffusion);
             }
         }
     }
 
 
 
-    public void genererListe()
-    {
-        for(int i =0;i<10;i++)
-        {
-            TextView txt = new TextView(this);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(10, 5, 5, 10);
-            txt.setText(i+ListBonPlan\nkofjezoi\n efiohfeziuef");
-            txt.setId(i);
-            txt.setBackgroundColor(colors[1]);
-            txt.setHeight(200);
-            txt.setPadding(10,10,10,10);
-            txt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                    Intent intent = new Intent(context, BonPlanActivity.class);
-                    intent.putExtra("color",category);
-                    startActivity(intent)
-                    ;}
-            });
-            layout.addView(txt, lp);
-        }
-    }
 
     public void initColors(int[] colors){
         AppBarLayout appBar = findViewById(R.id.appbar);
@@ -239,14 +213,10 @@ public class ListeBonPlansActivity extends AppCompatActivity
         return colors;
     }
 
-    public void newBonPlan(View view) {
-        Intent intent = new Intent(this, NouveauBonPlanActivity.class);
-        intent.putExtra("color",category);
-        startActivity(intent);
-    }
+
 }
 
-public class affiche_list
+public class ListDiff
 {
     Context context;
     List<BonPlan> bonPlanList;
@@ -258,5 +228,35 @@ public class affiche_list
         this.bonPlanList = MaList;
     }
 
-    
+
+    public void genererListe()
+    {
+        for(int i =0;i<10;i++)
+        {
+            TextView txt = new TextView(this);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lp.setMargins(10, 5, 5, 10);
+            txt.setText(i+ListBonPlan\nkofjezoi\n efiohfeziuef");
+                    txt.setId(i);
+            txt.setBackgroundColor(colors[1]);
+            txt.setHeight(200);
+            txt.setPadding(10,10,10,10);
+            txt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO Auto-generated method stub
+                    Intent intent = new Intent(context, BonPlanActivity.class);
+                    intent.putExtra("color",category);
+                    startActivity(intent)
+                    ;}
+            });
+            layout.addView(txt, lp);
+        }
+    }
+
+    public void newBonPlan(View view) {
+        Intent intent = new Intent(this, NouveauBonPlanActivity.class);
+        intent.putExtra("color",category);
+        startActivity(intent);
+    }
 }
