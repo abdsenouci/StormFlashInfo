@@ -47,12 +47,13 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
         new JsonParser(this).execute();
+        genererListe();
         initColors(colors);
     }
 
     public void genererListe()
     {
-        for(int i =0;i<10;i++)
+        for(int i =0;i<BonPlans.size();i++)
         {
             TextView txt = new TextView(this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
