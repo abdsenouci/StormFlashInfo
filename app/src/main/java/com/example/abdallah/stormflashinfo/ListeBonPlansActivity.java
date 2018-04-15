@@ -11,7 +11,6 @@ import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,8 @@ import android.widget.Toast;
 
 
 
-public class ListeBonPlansActivity extends AppCompatActivity {
+public class ListeBonPlansActivity extends AppCompatActivity
+{
     int category;
     Context context;
     LinearLayout layout;
@@ -42,7 +42,7 @@ public class ListeBonPlansActivity extends AppCompatActivity {
         layout = findViewById(R.id.linearBonPlan);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
-        genererListe();
+        //generatelist
         new JsonParser(this).execute();
         initColors(colors);
     }
@@ -110,7 +110,11 @@ public class ListeBonPlansActivity extends AppCompatActivity {
                                 bonPlan.DateFin = jsonObject.getString("DateFin");
 
                                 ListBonPlan.add(bonPlan);
-                            }
+
+
+                                }
+                            genererListe();
+
                         }
 
                         catch (JSONException e)
@@ -134,7 +138,25 @@ public class ListeBonPlansActivity extends AppCompatActivity {
             }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(Void result)
+
+        {
+            //progressBar.setVisibility(View.GONE);
+
+            //SubjectFullFormListView.setVisibility(View.VISIBLE);
+
+            if (ListBonPlan != null) {
+
+                ListDiff diffusion = new ListAdapter(listeBonPlan, context);
+
+                SubjectFullFormListView.setAdapter(diffusion);
+            }
+        }
     }
+
+
 
     public void genererListe()
     {
@@ -143,7 +165,7 @@ public class ListeBonPlansActivity extends AppCompatActivity {
             TextView txt = new TextView(this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(10, 5, 5, 10);
-            txt.setText(i+"label\nkofjezoi\n efiohfeziuef");
+            txt.setText(i+ListBonPlan\nkofjezoi\n efiohfeziuef");
             txt.setId(i);
             txt.setBackgroundColor(colors[1]);
             txt.setHeight(200);
@@ -222,4 +244,19 @@ public class ListeBonPlansActivity extends AppCompatActivity {
         intent.putExtra("color",category);
         startActivity(intent);
     }
+}
+
+public class affiche_list
+{
+    Context context;
+    List<BonPlan> bonPlanList;
+
+
+    public ListDiff(List<BonPlan> MaList, Context context)
+    {
+        this.context = context;
+        this.bonPlanList = MaList;
+    }
+
+    
 }
