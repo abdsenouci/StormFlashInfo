@@ -1,5 +1,4 @@
 package com.example.abdallah.stormflashinfo;
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
@@ -14,12 +13,24 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.os.AsyncTask;
+import android.widget.Toast;
+
+
 
 public class ListeBonPlansActivity extends AppCompatActivity {
     int category;
     Context context;
     LinearLayout layout;
     int[] colors;
+
+    //Variables pour le JSON
+    String HttpURL = "http://localhost:8888/StormFlash/BonPlan.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +43,103 @@ public class ListeBonPlansActivity extends AppCompatActivity {
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
         genererListe();
+        new JsonParser(this).execute();
         initColors(colors);
     }
 
-    public void genererListe(){
-        for(int i =0;i<10;i++){
+
+    private class JsonParser extends AsyncTask<Void, Void, Void>
+    {
+        public Context context;
+
+        String JsonString;
+
+        List<BonPlan> ListBonPlan;
+
+        public JsonParser(Context context)
+        {
+            this.context = context;
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0)
+        {
+
+            HttpServiceClass httpServiceClass = new HttpServiceClass(HttpURL);
+
+            try
+            {
+                httpServiceClass.ExecutePostRequest();
+
+                if (httpServiceClass.getResponseCode() == 200)
+                {
+
+                    JsonString = httpServiceClass.getResponse();
+
+
+                    if (JsonString != null)
+                    {
+
+                        JSONArray jsonArray = null;
+
+                        try
+                        {
+                            jsonArray = new JSONArray(JsonString);
+                            JSONObject jsonObject;
+
+                            BonPlan bonPlan;
+
+                            ListBonPlan = new ArrayList<BonPlan>();
+
+
+                            for (int i = 0; i < jsonArray.length(); i++)
+                            {
+
+                                bonPlan = new BonPlan();
+
+                                jsonObject = jsonArray.getJSONObject(i);
+
+                                bonPlan.ObjBonPlan = jsonObject.getString("ObjBonPlan");
+                                bonPlan.DateDeb = jsonObject.getString("DateDeb");
+                                bonPlan.DateFin = jsonObject.getString("DateFin");
+
+                                ListBonPlan.add(bonPlan);
+                            }
+                        }
+
+                        catch (JSONException e)
+                        {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                else
+                    {
+                        Toast.makeText(context, httpServiceClass.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                    }
+            }
+
+            catch (Exception e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    public void genererListe()
+    {
+        for(int i =0;i<10;i++)
+        {
             TextView txt = new TextView(this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(10, 5, 5, 10);
