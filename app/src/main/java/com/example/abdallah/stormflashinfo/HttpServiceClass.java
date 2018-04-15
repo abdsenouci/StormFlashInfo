@@ -66,7 +66,8 @@ public class HttpServiceClass
     public void ExecuteGetRequest() throws Exception
     {
         String combinedParams = "";
-        if (!params.isEmpty()) {
+        if (!params.isEmpty())
+        {
             combinedParams += "?";
             for (NameValuePair p : params)
             {

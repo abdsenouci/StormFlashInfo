@@ -62,26 +62,31 @@ public class ListeBonPlansActivity extends AppCompatActivity
     public void genererListe()
     {
         String data;
-        for(int i =0; i < BonPlans.size(); i++)
+        for(int i = 0; i < BonPlans.size(); i++)
         {
-            TextView txt = new TextView(this);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(10, 5, 5, 10);
-            data = BonPlans.get(i).ObjBonPlan+"\n"+BonPlans.get(i).DateDeb+"\n"+BonPlans.get(i).DateFin+"\n";
-            txt.setText(data);
-            txt.setId(i);
-            txt.setBackgroundColor(colors[1]);
-            txt.setHeight(200);
-            txt.setPadding(10,10,10,10);
-            txt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, BonPlanActivity.class);
-                    intent.putExtra("color",category);
-                    context.startActivity(intent)
-                    ;}
-            });
-            layout.addView(txt, lp);
+            if (BonPlans.get(i).IdCat == category)
+            {
+                TextView txt = new TextView(this);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                lp.setMargins(10, 5, 5, 10);
+                data = BonPlans.get(i).NomLieu + "\n" + BonPlans.get(i).ObjBonPlan + "\nDu " + BonPlans.get(i).DateDeb + " au " + BonPlans.get(i).DateFin;
+                txt.setText(data);
+                txt.setId(i);
+                txt.setBackgroundColor(colors[1]);
+                txt.setHeight(200);
+                txt.setPadding(10, 10, 10, 10);
+                txt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(context, BonPlanActivity.class);
+                        intent.putExtra("color", category);
+                        context.startActivity(intent);
+
+                    }
+                });
+                layout.addView(txt, lp);
+            }
         }
     }
 
@@ -91,8 +96,6 @@ public class ListeBonPlansActivity extends AppCompatActivity
         intent.putExtra("color",category);
         startActivity(intent);
     }
-
-
 
     private class JsonParser extends AsyncTask<Void, Void, Void>
     {
@@ -118,7 +121,6 @@ public class ListeBonPlansActivity extends AppCompatActivity
         {
 
             HttpServiceClass httpServiceClass = new HttpServiceClass(HttpURL);
-
 
             try
             {
@@ -154,6 +156,8 @@ public class ListeBonPlansActivity extends AppCompatActivity
                                 bonPlan.ObjBonPlan = jsonObject.getString("ObjBonPLan");
                                 bonPlan.DateDeb = jsonObject.getString("DateDeb");
                                 bonPlan.DateFin = jsonObject.getString("DateFin");
+                                bonPlan.NomLieu = jsonObject.getString("nomLieu");
+                                bonPlan.IdCat = jsonObject.getInt("IdCat");
 
                                 ListBonPlan.add(bonPlan);
 
@@ -188,7 +192,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
             return null;
         }
-        
+
     }
 
 
