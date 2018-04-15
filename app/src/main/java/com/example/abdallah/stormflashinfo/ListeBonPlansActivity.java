@@ -2,22 +2,19 @@ package com.example.abdallah.stormflashinfo;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.os.AsyncTask;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,9 +25,16 @@ public class ListeBonPlansActivity extends AppCompatActivity
     Context context;
     LinearLayout layout;
     int[] colors;
+    static List<BonPlan> BonPlans;
+
 
     //Variables pour le JSON
     String HttpURL = "http://localhost:8888/StormFlash/BonPlan.php";
+
+    private static void setListe(List<BonPlan> liste)
+    {
+        BonPlans = liste;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +46,40 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout = findViewById(R.id.linearBonPlan);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
-        //generatelist
         new JsonParser(this).execute();
         initColors(colors);
     }
+
+    public void genererListe()
+    {
+        for(int i =0;i<10;i++)
+        {
+            TextView txt = new TextView(this);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            lp.setMargins(10, 5, 5, 10);
+            txt.setText(BonPlans.get(i).ObjBonPlan+"\n"+BonPlans.get(i).DateDeb+"\n"+BonPlans.get(i).DateFin+"\n");
+            txt.setId(i);
+            txt.setBackgroundColor(colors[1]);
+            txt.setHeight(200);
+            txt.setPadding(10,10,10,10);
+            txt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, BonPlanActivity.class);
+                    intent.putExtra("color",category);
+                    context.startActivity(intent)
+                    ;}
+            });
+            layout.addView(txt, lp);
+        }
+    }
+
+        public void newBonPlan(View view) {
+        Intent intent = new Intent(this, NouveauBonPlanActivity.class);
+        intent.putExtra("color",category);
+        startActivity(intent);
+    }
+
 
 
     private class JsonParser extends AsyncTask<Void, Void, Void>
@@ -141,15 +175,9 @@ public class ListeBonPlansActivity extends AppCompatActivity
         protected void onPostExecute(Void result)
 
         {
-            //progressBar.setVisibility(View.GONE);
-
-            //SubjectFullFormListView.setVisibility(View.VISIBLE);
-
             if (ListBonPlan != null)
             {
-                ListDiff diffusion = new ListDiff(ListBonPlan, context);
-                diffusion.genererListe();
-                //SubjectFullFormListView.setAdapter(diffusion);
+                ListeBonPlansActivity.setListe(ListBonPlan);
             }
         }
     }
@@ -214,49 +242,4 @@ public class ListeBonPlansActivity extends AppCompatActivity
     }
 
 
-}
-
-public class ListDiff
-{
-    Context context;
-    List<BonPlan> bonPlanList;
-
-
-    public ListDiff(List<BonPlan> MaList, Context context)
-    {
-        this.context = context;
-        this.bonPlanList = MaList;
-    }
-
-
-    public void genererListe()
-    {
-        for(int i =0;i<10;i++)
-        {
-            TextView txt = new TextView(this);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(10, 5, 5, 10);
-            txt.setText(i+ListBonPlan\nkofjezoi\n efiohfeziuef");
-                    txt.setId(i);
-            txt.setBackgroundColor(colors[1]);
-            txt.setHeight(200);
-            txt.setPadding(10,10,10,10);
-            txt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                    Intent intent = new Intent(context, BonPlanActivity.class);
-                    intent.putExtra("color",category);
-                    startActivity(intent)
-                    ;}
-            });
-            layout.addView(txt, lp);
-        }
-    }
-
-    public void newBonPlan(View view) {
-        Intent intent = new Intent(this, NouveauBonPlanActivity.class);
-        intent.putExtra("color",category);
-        startActivity(intent);
-    }
 }
