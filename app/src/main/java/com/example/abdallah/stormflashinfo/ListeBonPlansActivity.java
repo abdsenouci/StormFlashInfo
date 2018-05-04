@@ -27,7 +27,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
     LinearLayout layout;
     int[] colors;
     static List<BonPlan> BonPlans;
-
+    BonPlan bp;
 
     //Variables pour le JSON
     String HttpURL = "http://10.0.2.2:8888/StormFlash/BonPlan.php";
@@ -75,12 +75,21 @@ public class ListeBonPlansActivity extends AppCompatActivity
                 txt.setBackgroundColor(colors[1]);
                 txt.setHeight(200);
                 txt.setPadding(10, 10, 10, 10);
+                bp = BonPlans.get(i);
                 txt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v)
                     {
                         Intent intent = new Intent(context, BonPlanActivity.class);
                         intent.putExtra("color", category);
+                        intent.putExtra("IdBonPlan", bp.IdBonPlan);
+                        intent.putExtra("NomLieu", bp.NomLieu);
+                        intent.putExtra("ObjBonPlan", bp.ObjBonPlan);
+                        intent.putExtra("DateDeb", bp.DateDeb);
+                        intent.putExtra("DateFin", bp.DateFin);
+                        intent.putExtra("IdLieu", bp.IdLieu);
+                        intent.putExtra("DescBonPlan", bp.DescBonPlan);
+                        
                         context.startActivity(intent);
 
                     }
@@ -158,6 +167,9 @@ public class ListeBonPlansActivity extends AppCompatActivity
                                 bonPlan.DateFin = jsonObject.getString("DateFin");
                                 bonPlan.NomLieu = jsonObject.getString("nomLieu");
                                 bonPlan.IdCat = jsonObject.getInt("IdCat");
+                                bonPlan.IdBonPlan = jsonObject.getInt("IdBonPlan");
+                                bonPlan.IdLieu = jsonObject.getInt("IdLieu");
+                                bonPlan.DescBonPlan = jsonObject.getString("DescBonPlan");
 
                                 ListBonPlan.add(bonPlan);
 
