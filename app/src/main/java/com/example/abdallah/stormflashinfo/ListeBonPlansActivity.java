@@ -89,7 +89,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
                         intent.putExtra("DateFin", bp.DateFin);
                         intent.putExtra("IdLieu", bp.IdLieu);
                         intent.putExtra("DescBonPlan", bp.DescBonPlan);
-                        
+
                         context.startActivity(intent);
 
                     }
