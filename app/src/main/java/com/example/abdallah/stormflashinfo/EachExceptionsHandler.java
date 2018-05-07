@@ -6,7 +6,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 
 
-public interface EachExceptionsHandler {
+public interface EachExceptionsHandler
+{
     void handleIOException(IOException e);
     void handleMalformedURLException(MalformedURLException e);
     void handleProtocolException(ProtocolException e);

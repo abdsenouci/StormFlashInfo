@@ -18,10 +18,10 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
 {
     final String LOG = " NouveauBonPlanActivity";
 
-    private EditText ObjBonPlan, DescBonPlan, DateDeb, DateFin, IdCat, IdLieu;
-    private Button btnInsert;
-    int CategorieId = ;
-    int LieuId = ;
+    private EditText ObjBonPlan, DescBonPlan;
+    private Button btnInsert, DateDeb, DateFin;
+    int CategorieId = -1;
+    int LieuId = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -29,16 +29,21 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nouveau_bon_plan);
 
-        ObjBonPlan = (EditText)findViewById(R.id.ObjBonPlan);
-        DescBonPlan = (EditText)findViewById(R.id.DescBonPlan);
-        DateDeb = (EditText)findViewById(R.id.DateDeb);
-        DateFin = (EditText)findViewById(R.id.DateFin);
-        IdCat = CategorieId;
-        IdLieu = LieuId
+        Intent intent = getIntent();
+        CategorieId = intent.getIntExtra("color", -1);
+
+
+        ObjBonPlan = findViewById(R.id.ObjBonPlan);
+        DescBonPlan = findViewById(R.id.DescBonPlan);
+        DateDeb = findViewById(R.id.DateDeb);
+        DateFin = findViewById(R.id.DateFin);
         btnInsert = (Button)findViewById(R.id.btnInsert);
         btnInsert.setOnClickListener(this);
 
     }
+
+    String IdCategorie = String.valueOf(CategorieId);
+    String IdLieu = String.valueOf(LieuId);
 
     @Override
     public void onClick(View v) {
@@ -47,24 +52,26 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         postData.put("TxtDescBonPlan", DescBonPlan.getText().toString());
         postData.put("TxtDateDeb", DateDeb.getText().toString());
         postData.put("TxtDateFin", DateFin.getText().toString());
-        postData.put("TxtIdCat", IdCat.getText().toString());
-        postData.put("TxtIdLieu", IdLieu.getText().toString());
-        postData.put("mobile", "android");
+        postData.put("TxtIdCat", IdCategorie.toString());
+        postData.put("TxtIdLieu", IdLieu.toString());
+        postData.put("Mobile", "android");
 
 
         PostResponseAsyncTask taskInsert = new PostResponseAsyncTask(NouveauBonPlanActivity.this,
-                postData, new AsyncResponse() {
+                postData, new AsyncResponse()
+        {
             @Override
-            public void processFinish(String s) {
+            public void processFinish(String s)
+            {
                 Log.d(LOG, s);
-                if(s.contains("success")){
+                if(s.contains("success"))
+                {
                     Toast.makeText(NouveauBonPlanActivity.this, "Insert Successfully", Toast.LENGTH_LONG).show();
-                    Intent in = new Intent(                    Toast.makeText(NouveauBonPlanActivity.this, "Insert Successfully", Toast.LENGTH_LONG).show();
-.this, ListeLieuxActivity.class);
+                    Intent in = new Intent(NouveauBonPlanActivity.this, ListeLieuxActivity.class);
                     startActivity(in);
                 }
             }
         });
-        taskInsert.execute("http://10.0.2.2:80/AjouterBonPlan.php");
+        taskInsert.execute("http://10.0.2.2:8888/StormFlash/AjouterBonPlan.php");
     }
 }

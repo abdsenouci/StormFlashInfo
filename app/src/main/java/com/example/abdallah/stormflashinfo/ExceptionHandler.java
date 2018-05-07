@@ -1,5 +1,6 @@
 package com.example.abdallah.stormflashinfo;
 
-public interface ExceptionHandler {
+public interface ExceptionHandler
+{
     void handleException(Exception e);
 }

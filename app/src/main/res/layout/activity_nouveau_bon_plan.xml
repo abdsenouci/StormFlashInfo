@@ -76,7 +76,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/description"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/ObjBonPlan" />
 
             <TextView
                 android:id="@+id/textView27"
@@ -104,7 +104,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/button2" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/DateDeb"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -112,10 +112,10 @@
                 android:layout_marginTop="8dp"
                 android:text="Button"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+                app:layout_constraintTop_toBottomOf="@+id/DescBonPlan" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/ObjBonPlan"
                 android:layout_width="wrap_content"
                 android:layout_height="40sp"
                 android:layout_marginEnd="16dp"
@@ -123,12 +123,11 @@
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/line1" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/DateFin"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -136,7 +135,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Button"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+                app:layout_constraintTop_toBottomOf="@+id/DateDeb" />
 
             <Spinner
                 android:id="@+id/spinner2"
@@ -157,7 +156,7 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/periode"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+                app:layout_constraintTop_toBottomOf="@+id/DescBonPlan" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -184,7 +183,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/DescBonPlan"
                 android:layout_width="wrap_content"
                 android:layout_height="76dp"
                 android:layout_marginEnd="16dp"
@@ -193,22 +192,22 @@
                 android:ems="10"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/ObjBonPlan" />
 
             <Button
                 android:id="@+id/button5"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="105dp"
                 android:background="@color/neutreBoutons"
                 android:text="@string/annuler"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button6" />
+                app:layout_constraintTop_toBottomOf="@+id/btnInsert" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btnInsert"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="75dp"
@@ -217,7 +216,7 @@
                 android:text="Button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
+                app:layout_constraintTop_toBottomOf="@+id/DateFin" />
 
             <TextView
                 android:id="@+id/textView34"
@@ -227,8 +226,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/fin"
-                app:layout_constraintEnd_toStartOf="@+id/button4"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+                app:layout_constraintEnd_toStartOf="@+id/DateFin"
+                app:layout_constraintTop_toBottomOf="@+id/DateDeb" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -238,8 +237,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/debut"
-                app:layout_constraintEnd_toStartOf="@+id/button3"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+                app:layout_constraintEnd_toStartOf="@+id/DateDeb"
+                app:layout_constraintTop_toBottomOf="@+id/DescBonPlan" />
 
             <TextView
                 android:id="@+id/textView32"
