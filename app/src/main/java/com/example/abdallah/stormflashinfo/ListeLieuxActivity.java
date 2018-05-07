@@ -30,7 +30,7 @@ public class ListeLieuxActivity extends AppCompatActivity
     int[] colors;
     static List<Lieu> ListLieux;
 
-    String HttpURL = "http://10.0.2.2:8888/StormFlash/Lieu.php";
+    String HttpURL = "http://10.0.2.2:80/Lieu.php";
 
     private static void setListe(List<Lieu> liste)
     {

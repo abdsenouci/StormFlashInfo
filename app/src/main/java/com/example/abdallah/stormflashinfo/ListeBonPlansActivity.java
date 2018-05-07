@@ -2,6 +2,7 @@ package com.example.abdallah.stormflashinfo;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
     BonPlan bp;
 
     //Variables pour le JSON
-    String HttpURL = "http://10.0.2.2:8888/StormFlash/BonPlan.php";
+    String HttpURL = "http://10.0.2.2:80/BonPlan.php";
 
 
     private static void setListe(List<BonPlan> liste)
@@ -99,11 +100,18 @@ public class ListeBonPlansActivity extends AppCompatActivity
         }
     }
 
-        public void newBonPlan(View view)
+        public void newBonPlan()
         {
-        Intent intent = new Intent(this, NouveauBonPlanActivity.class);
-        intent.putExtra("color",category);
-        startActivity(intent);
+            FloatingActionButton fab = findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, NouveauBonPlanActivity.class);
+                    intent.putExtra("color",category);
+                    startActivity(intent);
+                }
+            });
+
     }
 
     private class JsonParser extends AsyncTask<Void, Void, Void>

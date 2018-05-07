@@ -35,6 +35,11 @@
     <string name="description">Description</string>
     <string name="offreLimitée">Offre limitée</string>
     <string name="periode">Période</string>
+    <string name="debut">Début</string>
+    <string name="fin">Fin</string>
+    <string name="annuler">Annuler</string>
+    <string name="ajouter">Ajouter</string>
+
 
 
 </resources>
