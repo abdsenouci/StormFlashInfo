@@ -49,6 +49,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout = findViewById(R.id.linearBonPlan);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
+        newBonPlan();
         new JsonParser(this).execute();
         try {
             TimeUnit.SECONDS.sleep(1);
