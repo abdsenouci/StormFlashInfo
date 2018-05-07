@@ -31,7 +31,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
     BonPlan bp;
 
     //Variables pour le JSON
-    String HttpURL = "http://10.0.2.2:80/BonPlan.php";
+    String HttpURL = "http://10.0.2.2:8888/StormFlash/BonPlan.php";
 
 
     private static void setListe(List<BonPlan> liste)
@@ -49,7 +49,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout = findViewById(R.id.linearBonPlan);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
-        newBonPlan();
+
         new JsonParser(this).execute();
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -59,6 +59,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
         genererListe();
 
         initColors(colors);
+        newBonPlan();
     }
 
     public void genererListe()
