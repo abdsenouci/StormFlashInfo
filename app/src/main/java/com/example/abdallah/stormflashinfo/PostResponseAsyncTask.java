@@ -23,7 +23,8 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 
-public class PostResponseAsyncTask extends AsyncTask<String, Void, String> {
+public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
+{
 
     private String LOG = "PostResponseAsyncTask";
 
