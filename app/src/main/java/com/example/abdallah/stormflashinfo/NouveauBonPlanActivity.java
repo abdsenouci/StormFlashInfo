@@ -1,6 +1,10 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.database.DataSetObserver;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,8 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -18,8 +27,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class NouveauBonPlanActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -27,11 +38,18 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
 
     String IdCategorie;
     String IdLieu;
+    static List<Lieu> ListLieux;
+    static String FinalDateDeb;
+
+    private static void setListe(List<Lieu> liste)
+    {
+        ListLieux = liste;
+    }
 
     String HttpURL = "http://10.0.2.2:8888/StormFlash/ListeLieux.php";
 
-
     private EditText ObjBonPlan, DescBonPlan, DateDeb, DateFin;
+    private DatePickerDialog.OnDateSetListener DateDebListner;
     private Button btnInsert;
     int CategorieId = 0;
     int LieuId = 1;
@@ -45,16 +63,63 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
 
         Intent intent = getIntent();
         CategorieId = intent.getIntExtra("color", -1);
-
         ObjBonPlan = findViewById(R.id.ObjBonPlan);
         DescBonPlan = findViewById(R.id.DescBonPlan);
+
         DateDeb = findViewById(R.id.DateDeb);
+        DateDeb.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog
+                        (NouveauBonPlanActivity.this, android.R.style.Theme_Holo_Dialog_MinWidth,
+                                DateDebListner, year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+
+        });
+        DateDebListner = new DatePickerDialog.OnDateSetListener()
+        {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day)
+            {
+                month = month + 1;
+                String A = String.valueOf(year);
+                String M = String.valueOf(month);
+                String J = String.valueOf(day);
+                FinalDateDeb = A + "/" + M + "/" + J;
+            }
+        };
+
+
         DateFin = findViewById(R.id.DateFin);
         btnInsert = (Button)findViewById(R.id.btnInsert);
         btnInsert.setOnClickListener(this);
 
         IdCategorie = String.valueOf(CategorieId);
         IdLieu = String.valueOf(LieuId);
+
+        Log.i("00000000000", "0000000000");
+
+        new JsonParser(this).execute();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Log.i("OKKKKKKKK", "11111111111111");
+        //ArrayAdapter Adapter = (ArrayAdapter)ListeSpinnerLieu.getAdapter();
+
+
+        Log.i("222222222", "2222222222222");
     }
 
     private class JsonParser extends AsyncTask<Void, Void, Void>
@@ -148,7 +213,8 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
 
             if (ListLieu != null)
             {
-                ListeLieuxActivity.setListe(ListLieu);
+                Log.e("Liste","La LISTE EST PAINE *************************************************");
+                NouveauBonPlanActivity.setListe(ListLieu);
             }
 
             return null;
@@ -163,7 +229,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         postData.put("TxtObjBonPlan", ObjBonPlan.getText().toString());
         postData.put("TxtDescBonPlan", DescBonPlan.getText().toString());
         postData.put("TxtDateDeb", DateDeb.getText().toString());
-        //postData.put("TxtDateDeb", "28/10/2018");
+        postData.put("TxtDateDeb", FinalDateDeb);
         postData.put("TxtDateFin", DateFin.getText().toString());
         //postData.put("TxtDateFin", "30/11/2018");
         postData.put("TxtIdCat", IdCategorie);
