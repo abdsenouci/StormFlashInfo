@@ -110,6 +110,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                 FinalDateFin = A + "/" + M + "/" + J;
             }
         };
+
         btnInsert = (Button)findViewById(R.id.btnInsert);
         btnInsert.setOnClickListener(this);
 
