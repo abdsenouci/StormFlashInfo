@@ -20,9 +20,9 @@ public class Horaire {
         Samedi = samedi;
         Dimanche = dimanche;
     }
-    /*
-    public static parseDay(){
 
+    public static String[] parseDay(String s){
+        return s.split(".");
     }
-    */
+
 }
