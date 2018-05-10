@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
-import java.util.List;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,26 +17,25 @@ import android.widget.Toast;
 
 public class launcherActivity extends AppCompatActivity
 {
-    Context context;
-    static List<String> ListeLieux;
-    static List<String> ListeBonPlan;
-    static List<String> ListeHoraire;
+    static ArrayList<String> ListeLieux;
+    static ArrayList<String> ListeBonPlan;
+    static ArrayList<String> ListeHoraire;
 
     String HttpURL_Lieu = "http://10.0.2.2:8888/StormFlash/LieuTotal.php";
     String HttpURL_BonPlan = "http://10.0.2.2:8888/StormFlash/BonPlanTotal.php";
     String HttpURL_Horaires = "http://10.0.2.2:8888/StormFlash/HorairesTotal.php";
 
-    private static void setListeL(List<String> liste)
+    private static void setListeL(ArrayList<String> liste)
     {
         ListeLieux = liste;
     }
 
-    private static void setListeB(List<String> liste)
+    private static void setListeB(ArrayList<String> liste)
     {
         ListeBonPlan = liste;
     }
 
-    private static void setListeH(List<String> liste)
+    private static void setListeH(ArrayList<String> liste)
     {
         ListeHoraire = liste;
     }
@@ -60,6 +58,9 @@ public class launcherActivity extends AppCompatActivity
             public void run()
             {
                 Intent intent = new Intent(launcherActivity.this, menuActivity.class);
+                intent.putStringArrayListExtra("ListeLieux",ListeLieux);
+                intent.putStringArrayListExtra("ListeBonPlans",ListeBonPlan);
+                intent.putStringArrayListExtra("ListeHoraires",ListeHoraire);
                 startActivity(intent);
                 finish();
             }
@@ -75,9 +76,9 @@ public class launcherActivity extends AppCompatActivity
         String JsonStringHoraire;
 
 
-        List<String> ListLieu;
-        List<String> ListBonPlan;
-        List<String> ListHoraire;
+        ArrayList<String> ListLieu;
+        ArrayList<String> ListBonPlan;
+        ArrayList<String> ListHoraire;
 
         public JsonParser(Context context)
         {
