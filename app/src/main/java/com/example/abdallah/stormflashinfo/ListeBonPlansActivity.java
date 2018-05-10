@@ -27,17 +27,8 @@ public class ListeBonPlansActivity extends AppCompatActivity
     Context context;
     LinearLayout layout;
     int[] colors;
-    static List<BonPlan> BonPlans;
-    BonPlan bp;
-
-    //Variables pour le JSON
-    String HttpURL = "http://10.0.2.2:8888/StormFlash/BonPlan.php";
 
 
-    private static void setListe(List<BonPlan> liste)
-    {
-        BonPlans = liste;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +41,13 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = getColors(category);
 
-        new JsonParser(this).execute();
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        genererListe();
+       // genererListe();
 
         initColors(colors);
         newBonPlan();
     }
 
-    public void genererListe()
+    /*public void genererListe()
     {
         String data;
         for(int i = 0; i < BonPlans.size(); i++)
@@ -100,7 +85,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
                 layout.addView(txt, lp);
             }
         }
-    }
+    }*/
 
         public void newBonPlan()
         {
@@ -115,110 +100,6 @@ public class ListeBonPlansActivity extends AppCompatActivity
             });
 
     }
-
-    private class JsonParser extends AsyncTask<Void, Void, Void>
-    {
-        public Context context;
-
-        String JsonString;
-
-        List<BonPlan> ListBonPlan;
-
-        public JsonParser(Context context)
-        {
-            this.context = context;
-        }
-
-        @Override
-        protected void onPreExecute() {
-
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Void doInBackground(Void... arg0)
-        {
-
-            HttpServiceClass httpServiceClass = new HttpServiceClass(HttpURL);
-
-            try
-            {
-                httpServiceClass.ExecutePostRequest();
-
-
-                if (httpServiceClass.getResponseCode() == 200)
-                {
-
-                    JsonString = httpServiceClass.getResponse();
-
-
-                    if (JsonString != null)
-                    {
-                        JSONArray jsonArray = null;
-
-                        try
-                        {
-                            jsonArray = new JSONArray(JsonString);
-
-                            JSONObject jsonObject;
-
-                            BonPlan bonPlan;
-
-                            ListBonPlan = new ArrayList<BonPlan>();
-
-
-                            for (int i = 0; i < jsonArray.length(); i++)
-                            {
-                                bonPlan = new BonPlan();
-                                jsonObject = jsonArray.getJSONObject(i);
-
-                                bonPlan.ObjBonPlan = jsonObject.getString("ObjBonPLan");
-                                bonPlan.DateDeb = jsonObject.getString("DateDeb");
-                                bonPlan.DateFin = jsonObject.getString("DateFin");
-                                bonPlan.NomLieu = jsonObject.getString("nomLieu");
-                                bonPlan.IdCat = jsonObject.getInt("IdCat");
-                                bonPlan.IdBonPlan = jsonObject.getInt("IdBonPlan");
-                                bonPlan.IdLieu = jsonObject.getInt("IdLieu");
-                                bonPlan.DescBonPlan = jsonObject.getString("DescBonPlan");
-
-                                ListBonPlan.add(bonPlan);
-
-                            }
-                        }
-
-                        catch (JSONException e)
-                        {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                //System.out.println("ONSORTDELABOUCLE2");
-                else
-                    {
-                        Toast.makeText(context, httpServiceClass.getErrorMessage(), Toast.LENGTH_SHORT).show();
-                    }
-            }
-
-
-            catch (Exception e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-            if (ListBonPlan != null)
-            {
-                ListeBonPlansActivity.setListe(ListBonPlan);
-            }
-
-            return null;
-        }
-
-    }
-
-
-
 
     public void initColors(int[] colors)
     {
