@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -30,7 +31,7 @@ public class launcherActivity extends AppCompatActivity
         ListeLieux = liste;
     }
 
-    private static void setListeB(ArrayList<String> liste)
+   private static void setListeB(ArrayList<String> liste)
     {
         ListeBonPlan = liste;
     }
@@ -57,6 +58,9 @@ public class launcherActivity extends AppCompatActivity
             @Override
             public void run()
             {
+                Log.i("AAAAAAAAAAAAAAAAAAAA", ListeBonPlan.get(0));
+                Log.i("BBBBBBBBBBBBBBBBBBBB", ListeLieux.get(0));
+                Log.i("CCCCCCCCCCCCCCCCCCCC", ListeHoraire.get(0));
                 Intent intent = new Intent(launcherActivity.this, menuActivity.class);
                 intent.putStringArrayListExtra("ListeLieux",ListeLieux);
                 intent.putStringArrayListExtra("ListeBonPlans",ListeBonPlan);
@@ -105,16 +109,13 @@ public class launcherActivity extends AppCompatActivity
                 httpServiceClassBonPlan.ExecutePostRequest();
                 httpServiceClassHoraires.ExecutePostRequest();
 
-
-
-
                 if (httpServiceClassLieu.getResponseCode() == 200 && httpServiceClassBonPlan.getResponseCode() == 200 &&
-                        httpServiceClassHoraires.getResponseCode() == 200)
+                   httpServiceClassHoraires.getResponseCode() == 200)
                 {
 
                     JsonStringLieu = httpServiceClassLieu.getResponse();
-                    JsonStringBonPlan = httpServiceClassLieu.getResponse();
-                    JsonStringHoraire = httpServiceClassLieu.getResponse();
+                    JsonStringBonPlan = httpServiceClassBonPlan.getResponse();
+                    JsonStringHoraire = httpServiceClassHoraires.getResponse();
 
 
                     if (JsonStringLieu != null && JsonStringBonPlan != null && JsonStringHoraire != null)
@@ -123,17 +124,15 @@ public class launcherActivity extends AppCompatActivity
                         JSONArray jsonArrayBonPlan = null;
                         JSONArray jsonArrayHoraire = null;
 
-
                         try
                         {
-                            jsonArrayLieu = new JSONArray(JsonStringLieu);
+                           jsonArrayLieu = new JSONArray(JsonStringLieu);
                             JSONObject jsonObject;
                             String lieuString;
                             ListLieu = new ArrayList<>();
 
                             for (int i = 0; i < jsonArrayLieu.length(); i++)
                             {
-                                //lieu = new Lieu();
                                 jsonObject = jsonArrayLieu.getJSONObject(i);
 
                                 lieuString = jsonObject.getString("IdLieu") + "/"
@@ -148,14 +147,13 @@ public class launcherActivity extends AppCompatActivity
 
                             }
 
-                            jsonArrayBonPlan = new JSONArray(JsonStringBonPlan);
-                            JSONObject jsonObjectBonPlan;
-                            String bonplanString;
-                            ListBonPlan = new ArrayList<>();
+                           jsonArrayBonPlan = new JSONArray(JsonStringBonPlan);
+                           JSONObject jsonObjectBonPlan;
+                           String bonplanString;
+                           ListBonPlan = new ArrayList<>();
 
-                            for (int i = 0; i < jsonArrayBonPlan.length(); i++)
+                           for (int i = 0; i < jsonArrayBonPlan.length(); i++)
                             {
-                                //lieu = new Lieu();
                                 jsonObjectBonPlan = jsonArrayBonPlan.getJSONObject(i);
 
                                  bonplanString = jsonObjectBonPlan.getString("IdBonPlan") + "/"
@@ -173,12 +171,10 @@ public class launcherActivity extends AppCompatActivity
                             jsonArrayHoraire = new JSONArray(JsonStringHoraire);
                             JSONObject jsonObjectHoraire;
                             String AllHoraire;
-                            //Lieu lieu;
                             ListHoraire = new ArrayList<>();
 
                             for (int i = 0; i < jsonArrayHoraire.length(); i++)
                             {
-                                //lieu = new Lieu();
                                 jsonObjectHoraire = jsonArrayHoraire.getJSONObject(i);
 
                                 AllHoraire = jsonObjectHoraire.getString("IdHoraires") + "/"
