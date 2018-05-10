@@ -27,8 +27,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
     Context context;
     LinearLayout layout;
     int[] colors;
-
-
+    BonPlan bp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
         context = this;
         layout = findViewById(R.id.linearBonPlan);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
-        colors = getColors(category);
+        colors = Utils.getColors(context, category);
 
        // genererListe();
 
@@ -47,23 +46,23 @@ public class ListeBonPlansActivity extends AppCompatActivity
         newBonPlan();
     }
 
-    /*public void genererListe()
+    public void genererListe()
     {
         String data;
-        for(int i = 0; i < BonPlans.size(); i++)
+        for(int i = 0; i < DataListes.BonPlans.size(); i++)
         {
-            if (BonPlans.get(i).IdCat == category)
+            if (DataListes.BonPlans.get(i).IdCat == category)
             {
                 TextView txt = new TextView(this);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(10, 5, 5, 10);
-                data = BonPlans.get(i).NomLieu + "\n" + BonPlans.get(i).ObjBonPlan + "\nDu " + BonPlans.get(i).DateDeb + " au " + BonPlans.get(i).DateFin;
+                data = DataListes.BonPlans.get(i).NomLieu + "\n" + DataListes.BonPlans.get(i).ObjBonPlan + "\nDu " + DataListes.BonPlans.get(i).DateDeb + " au " + DataListes.BonPlans.get(i).DateFin;
                 txt.setText(data);
                 txt.setId(i);
                 txt.setBackgroundColor(colors[1]);
                 txt.setHeight(200);
                 txt.setPadding(10, 10, 10, 10);
-                bp = BonPlans.get(i);
+                bp = DataListes.BonPlans.get(i);
                 txt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v)
@@ -71,21 +70,13 @@ public class ListeBonPlansActivity extends AppCompatActivity
                         Intent intent = new Intent(context, BonPlanActivity.class);
                         intent.putExtra("color", category);
                         intent.putExtra("IdBonPlan", bp.IdBonPlan);
-                        intent.putExtra("NomLieu", bp.NomLieu);
-                        intent.putExtra("ObjBonPlan", bp.ObjBonPlan);
-                        intent.putExtra("DateDeb", bp.DateDeb);
-                        intent.putExtra("DateFin", bp.DateFin);
-                        intent.putExtra("IdLieu", bp.IdLieu);
-                        intent.putExtra("DescBonPlan", bp.DescBonPlan);
-
                         context.startActivity(intent);
-
                     }
                 });
                 layout.addView(txt, lp);
             }
         }
-    }*/
+    }
 
         public void newBonPlan()
         {
@@ -110,53 +101,5 @@ public class ListeBonPlansActivity extends AppCompatActivity
         appBar.setBackgroundColor(colors[0]);
         //fbtn.setBackgroundColor(colors[2]);
     }
-
-    public int[] getColors(int colorCode) {
-        int[] colors = new int[3];
-        switch (colorCode) {
-            case 0:
-                colors[0] = ContextCompat.getColor(this,R.color.category0);
-                colors[1] = ContextCompat.getColor(this,R.color.category0Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category0Btn);
-                break;
-            case 1:
-                colors[0] = ContextCompat.getColor(this,R.color.category1);
-                colors[1] = ContextCompat.getColor(this,R.color.category1Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category1Btn);
-                break;
-            case 2:
-                colors[0] = ContextCompat.getColor(this,R.color.category2);
-                colors[1] = ContextCompat.getColor(this,R.color.category2Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category2Btn);
-                break;
-            case 3:
-                colors[0] = ContextCompat.getColor(this,R.color.category3);
-                colors[1] = ContextCompat.getColor(this,R.color.category3Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category3Btn);
-                break;
-            case 4:
-                colors[0] = ContextCompat.getColor(this,R.color.category4);
-                colors[1] = ContextCompat.getColor(this,R.color.category4Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category4Btn);
-                break;
-            case 5:
-                colors[0] = ContextCompat.getColor(this,R.color.category5);
-                colors[1] = ContextCompat.getColor(this,R.color.category5Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category5Btn);
-                break;
-            case 6:
-                colors[0] = ContextCompat.getColor(this,R.color.category6);
-                colors[1] = ContextCompat.getColor(this,R.color.category6Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category6Btn);
-                break;
-            default:
-                colors[0] = ContextCompat.getColor(this,R.color.colorPrimary);
-                colors[1] = ContextCompat.getColor(this,R.color.colorPrimaryDark);
-                colors[2] = ContextCompat.getColor(this,R.color.colorAccent);
-                break;
-        }
-        return colors;
-    }
-
 
 }

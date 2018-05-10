@@ -53,21 +53,15 @@ public class launcherActivity extends AppCompatActivity
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        DataListes.setBonPlans(ListeBonPlan);
         DataListes.setLieux(ListeLieux);
+        DataListes.setBonPlans(ListeBonPlan);
         DataListes.setHoraires(ListeHoraire);
         new Handler().postDelayed(new Runnable()
         {
             @Override
             public void run()
             {
-                Log.i("AAAAAAAAAAAAAAAAAAAA", ListeBonPlan.get(0));
-                Log.i("BBBBBBBBBBBBBBBBBBBB", ListeLieux.get(0));
-                Log.i("CCCCCCCCCCCCCCCCCCCC", ListeHoraire.get(0));
                 Intent intent = new Intent(launcherActivity.this, menuActivity.class);
-                intent.putStringArrayListExtra("ListeLieux",ListeLieux);
-                intent.putStringArrayListExtra("ListeBonPlans",ListeBonPlan);
-                intent.putStringArrayListExtra("ListeHoraires",ListeHoraire);
                 startActivity(intent);
                 finish();
             }

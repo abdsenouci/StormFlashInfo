@@ -9,8 +9,9 @@ public class BonPlan
     public String DateFin;
     public int IdCat;
     public int IdLieu;
+    public String NomLieu;
 
-    public BonPlan(int id, String obj, String desc, String dateDeb, String dateFin, int idCat, int idLieu)
+    public BonPlan(int id, String obj, String desc, String dateDeb, String dateFin, int idCat, int idLieu, String nomLieu)
     {
         IdBonPlan = id;
         ObjBonPlan = obj;
@@ -19,5 +20,6 @@ public class BonPlan
         DateFin = dateFin;
         IdCat = idCat;
         IdLieu = idLieu;
+        NomLieu = nomLieu;
     }
 }
