@@ -156,12 +156,12 @@ public class launcherActivity extends AppCompatActivity
                             {
                                 jsonObjectBonPlan = jsonArrayBonPlan.getJSONObject(i);
 
-                                 bonplanString = jsonObjectBonPlan.getString("IdBonPlan") + "*_*"
-                                         + jsonObjectBonPlan.getString("ObjBonPlan") + "*_*"
-                                         + jsonObjectBonPlan.getString("DescBonPlan") + "*_*"
-                                         + jsonObjectBonPlan.getString("DateDeb") + "*_*"
-                                         + jsonObjectBonPlan.getString("DateFin") + "*_*"
-                                         + jsonObjectBonPlan.getString("IdCat") + "*_*"
+                                 bonplanString = jsonObjectBonPlan.getString("IdBonPlan") + "_-_"
+                                         + jsonObjectBonPlan.getString("ObjBonPlan") + "_-_"
+                                         + jsonObjectBonPlan.getString("DescBonPlan") + "_-_"
+                                         + jsonObjectBonPlan.getString("DateDeb") + "_-_"
+                                         + jsonObjectBonPlan.getString("DateFin") + "_-_"
+                                         + jsonObjectBonPlan.getString("IdCat") + "_-_"
                                          + jsonObjectBonPlan.getString("IdLieu");
 
                                  ListBonPlan.add(bonplanString);
