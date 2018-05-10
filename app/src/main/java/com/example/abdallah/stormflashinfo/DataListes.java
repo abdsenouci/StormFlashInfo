@@ -8,9 +8,17 @@ public class DataListes {
     public static ArrayList<Horaire> Horaires;
 
     public static ArrayList<BonPlan> setBonPlans(ArrayList<String> list) {
+        String[] parsed = new String[7];
        for(String s:list)
        {
-           BonPlans.add(new BonPlan());
+           parsed=s.split("_-_");
+           BonPlans.add(new BonPlan(Integer.valueOf(parsed[0]), parsed[1], parsed[2], parsed[3], parsed[4], Integer.valueOf(parsed[5]), Integer.valueOf(parsed[6])));
        }
     }
+
+
+
+
+
+
 }
