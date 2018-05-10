@@ -135,12 +135,12 @@ public class launcherActivity extends AppCompatActivity
                             {
                                 jsonObject = jsonArrayLieu.getJSONObject(i);
 
-                                lieuString = jsonObject.getString("IdLieu") + "/"
-                                        + jsonObject.getString("NomLieu") + "/"
-                                + jsonObject.getString("AdrLieu") + "/"
-                                + jsonObject.getString("CpLieu") + "/"
-                                + jsonObject.getString("TelLieu") + "/"
-                                + jsonObject.getString("IdCat") + "/"
+                                lieuString = jsonObject.getString("IdLieu") + "_-_"
+                                        + jsonObject.getString("NomLieu") + "_-_"
+                                + jsonObject.getString("AdrLieu") + "_-_"
+                                + jsonObject.getString("CpLieu") + "_-_"
+                                + jsonObject.getString("TelLieu") + "_-_"
+                                + jsonObject.getString("IdCat") + "_-_"
                                 + jsonObject.getString("IdHoraires");
 
                                 ListLieu.add(lieuString);
@@ -177,13 +177,13 @@ public class launcherActivity extends AppCompatActivity
                             {
                                 jsonObjectHoraire = jsonArrayHoraire.getJSONObject(i);
 
-                                AllHoraire = jsonObjectHoraire.getString("IdHoraires") + "/"
-                                          + jsonObjectHoraire.getString("Lundi") + "/"
-                                          + jsonObjectHoraire.getString("Mardi") + "/"
-                                          + jsonObjectHoraire.getString("Mercredi") + "/"
-                                          + jsonObjectHoraire.getString("Jeudi") + "/"
-                                          + jsonObjectHoraire.getString("Vendredi") + "/"
-                                          + jsonObjectHoraire.getString("Samedi") + "/"
+                                AllHoraire = jsonObjectHoraire.getString("IdHoraires") + "_-_"
+                                          + jsonObjectHoraire.getString("Lundi") + "_-_"
+                                          + jsonObjectHoraire.getString("Mardi") + "_-_"
+                                          + jsonObjectHoraire.getString("Mercredi") + "_-_"
+                                          + jsonObjectHoraire.getString("Jeudi") + "_-_"
+                                          + jsonObjectHoraire.getString("Vendredi") + "_-_"
+                                          + jsonObjectHoraire.getString("Samedi") + "_-_"
                                           + jsonObjectHoraire.getString("Dimanche");
 
                                   ListHoraire.add(AllHoraire);
