@@ -218,8 +218,8 @@ public class launcherActivity extends AppCompatActivity
             if (ListLieu != null || ListBonPlan != null || ListHoraire != null)
             {
                 launcherActivity.setListeL(ListLieu);
-                launcherActivity.setListeL(ListBonPlan);
-                launcherActivity.setListeL(ListHoraire);
+                launcherActivity.setListeB(ListBonPlan);
+                launcherActivity.setListeH(ListHoraire);
             }
 
             return null;
