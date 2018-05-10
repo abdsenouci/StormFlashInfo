@@ -7,7 +7,7 @@ public class DataListes {
     public static ArrayList<Lieu> Lieux;
     public static ArrayList<Horaire> Horaires;
 
-    public static ArrayList<BonPlan> setBonPlans(ArrayList<String> list) {
+    public static void setBonPlans(ArrayList<String> list) {
         String[] parsed = new String[7];
        for(String s:list)
        {
@@ -16,9 +16,21 @@ public class DataListes {
        }
     }
 
+    public static void setLieux(ArrayList<String> list) {
+        String[] parsed = new String[7];
+        for(String s:list)
+        {
+            parsed=s.split("_-_");
+            Lieux.add(new Lieu(Integer.valueOf(parsed[0]), parsed[1], parsed[2], Integer.valueOf(parsed[3]), Integer.valueOf(parsed[4]), Integer.valueOf(parsed[5]), Integer.valueOf(parsed[6])));
+        }
+    }
 
-
-
-
-
+    public static void setHoraires(ArrayList<String> list) {
+        String[] parsed = new String[7];
+        for(String s:list)
+        {
+            parsed=s.split("_-_");
+            Horaires.add(new Horaire(Integer.valueOf(parsed[0]), parsed[1], parsed[2], parsed[3], parsed[4], parsed[5], parsed[6], parsed[7]));
+        }
+    }
 }

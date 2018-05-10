@@ -53,6 +53,9 @@ public class launcherActivity extends AppCompatActivity
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        DataListes.setBonPlans(ListeBonPlan);
+        DataListes.setLieux(ListeLieux);
+        DataListes.setHoraires(ListeHoraire);
         new Handler().postDelayed(new Runnable()
         {
             @Override
