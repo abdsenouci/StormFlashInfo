@@ -32,7 +32,7 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
 
     private AsyncResponse asyncResponse;
     private Context context;
-    private HashMap<String, String> postData = new HashMap<String, String>();
+    private HashMap<String, String> postData = new HashMap<>();
     private String loadingMessage = "Loading...";
     private boolean showLoadingMessage = true;
 
@@ -190,7 +190,6 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
             }
             else {
                 response="";
-
                 Log.d("PostResponseAsyncTask", responseCode + "");
             }
         } catch (MalformedURLException e) {

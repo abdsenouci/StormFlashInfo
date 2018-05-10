@@ -13,7 +13,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -123,7 +122,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v)
     {
-        HashMap postData = new HashMap();
+        HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtObjBonPlan", ObjBonPlan.getText().toString());
         postData.put("TxtDescBonPlan", DescBonPlan.getText().toString());
         postData.put("TxtDateDeb", FinalDateDeb);

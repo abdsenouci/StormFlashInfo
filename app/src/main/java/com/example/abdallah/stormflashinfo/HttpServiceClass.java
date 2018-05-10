@@ -49,8 +49,8 @@ public class HttpServiceClass
     public HttpServiceClass(String url)
     {
         this.url = url;
-        params = new ArrayList<NameValuePair>();
-        headers = new ArrayList<NameValuePair>();
+        params = new ArrayList<>();
+        headers = new ArrayList<>();
     }
 
     public void AddParam(String name, String value)

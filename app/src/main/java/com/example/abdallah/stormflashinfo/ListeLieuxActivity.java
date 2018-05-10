@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -136,7 +135,7 @@ public class ListeLieuxActivity extends AppCompatActivity
 
                             Lieu lieu;
 
-                            ListLieu = new ArrayList<Lieu>();
+                            ListLieu = new ArrayList<>();
 
 
                             for (int i = 0; i < jsonArray.length(); i++)

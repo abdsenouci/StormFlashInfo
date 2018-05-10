@@ -5,7 +5,6 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -81,17 +80,17 @@ public class categorieActivity extends AppCompatActivity {
         return colors;
     }
 
-    public void chooseLieux(View view) { Lieux(view, category); }
+    public void chooseLieux(View view) { Lieux(category); }
 
-    public void chooseBonPlan(View view) { BonPlan(view, category); }
+    public void chooseBonPlan(View view) { BonPlan(category); }
 
-    public void Lieux(View view, int category) {
+    public void Lieux(int category) {
         Intent intent = new Intent(this, ListeLieuxActivity.class);
         intent.putExtra("color",category);
         startActivity(intent);
     }
 
-    public void BonPlan(View view, int category) {
+    public void BonPlan(int category) {
         Intent intent = new Intent(this, ListeBonPlansActivity.class);
         intent.putExtra("color",category);
         startActivity(intent);

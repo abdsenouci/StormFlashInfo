@@ -16,35 +16,35 @@ public class menuActivity extends AppCompatActivity {
     }
 
     public void choose0(View view) {
-        chooseCategory(view, 0);
+        chooseCategory(0);
     }
 
     public void choose1(View view) {
-        chooseCategory(view, 1);
+        chooseCategory(1);
     }
 
     public void choose2(View view) {
-        chooseCategory(view, 2);
+        chooseCategory(2);
     }
 
     public void choose3(View view) {
-        chooseCategory(view, 3);
+        chooseCategory(3);
     }
 
     public void choose4(View view) {
-        chooseCategory(view, 4);
+        chooseCategory(4);
     }
 
     public void choose5(View view) {
-        chooseCategory(view, 5);
+        chooseCategory(5);
     }
 
     public void choose6(View view) {
-        chooseCategory(view, 6);
+        chooseCategory(6);
     }
 
 
-    public void chooseCategory(View view, int category) {
+    public void chooseCategory(int category) {
         Intent intent = new Intent(this, categorieActivity.class);
         intent.putExtra("color",category);
         startActivity(intent);
