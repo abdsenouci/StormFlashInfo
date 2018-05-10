@@ -18,7 +18,7 @@ public class categorieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categorie);
         Intent intent = getIntent();
         category = intent.getIntExtra("color",-1);
-        int[] colors = getColors(category);
+        int[] colors = Utils.getColors(this,category);
         initColors(colors);
     }
 
@@ -31,53 +31,6 @@ public class categorieActivity extends AppCompatActivity {
         appBar.setBackgroundColor((colors[0]));
         btnLieux.setBackgroundColor(colors[1]);
         btnBonsPlans.setBackgroundColor(colors[1]);
-    }
-
-    public int[] getColors(int colorCode) {
-        int[] colors = new int[3];
-        switch (colorCode) {
-            case 0:
-                colors[0] = ContextCompat.getColor(this,R.color.category0);
-                colors[1] = ContextCompat.getColor(this,R.color.category0Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category0Btn);
-                break;
-            case 1:
-                colors[0] = ContextCompat.getColor(this,R.color.category1);
-                colors[1] = ContextCompat.getColor(this,R.color.category1Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category1Btn);
-                break;
-            case 2:
-                colors[0] = ContextCompat.getColor(this,R.color.category2);
-                colors[1] = ContextCompat.getColor(this,R.color.category2Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category2Btn);
-                break;
-            case 3:
-                colors[0] = ContextCompat.getColor(this,R.color.category3);
-                colors[1] = ContextCompat.getColor(this,R.color.category3Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category3Btn);
-                break;
-            case 4:
-                colors[0] = ContextCompat.getColor(this,R.color.category4);
-                colors[1] = ContextCompat.getColor(this,R.color.category4Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category4Btn);
-                break;
-            case 5:
-                colors[0] = ContextCompat.getColor(this,R.color.category5);
-                colors[1] = ContextCompat.getColor(this,R.color.category5Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category5Btn);
-                break;
-            case 6:
-                colors[0] = ContextCompat.getColor(this,R.color.category6);
-                colors[1] = ContextCompat.getColor(this,R.color.category6Off);
-                colors[2] = ContextCompat.getColor(this,R.color.category6Btn);
-                break;
-            default:
-                colors[0] = ContextCompat.getColor(this,R.color.colorPrimary);
-                colors[1] = ContextCompat.getColor(this,R.color.colorPrimaryDark);
-                colors[2] = ContextCompat.getColor(this,R.color.colorAccent);
-                break;
-        }
-        return colors;
     }
 
     public void chooseLieux(View view) { Lieux(category); }
