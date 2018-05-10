@@ -40,7 +40,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = Utils.getColors(context, category);
 
-       // genererListe();
+       genererListe();
 
         initColors(colors);
         newBonPlan();
