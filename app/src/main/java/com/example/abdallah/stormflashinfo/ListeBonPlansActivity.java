@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class ListeBonPlansActivity extends AppCompatActivity
 {
     int category;
+    int i;
     Context context;
     LinearLayout layout;
     int[] colors;
@@ -49,7 +50,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
     public void genererListe()
     {
         String data;
-        for(int i = 0; i < DataListes.BonPlans.size(); i++)
+        for(i = 0; i < DataListes.BonPlans.size(); i++)
         {
             if (DataListes.BonPlans.get(i).IdCat == category)
             {
@@ -69,7 +70,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
                     {
                         Intent intent = new Intent(context, BonPlanActivity.class);
                         intent.putExtra("color", category);
-                        intent.putExtra("IdBonPlan", bp.IdBonPlan);
+                        intent.putExtra("position", i);
                         context.startActivity(intent);
                     }
                 });
