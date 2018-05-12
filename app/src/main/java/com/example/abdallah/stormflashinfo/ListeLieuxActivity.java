@@ -56,6 +56,7 @@ public class ListeLieuxActivity extends AppCompatActivity
                     {
                         Intent intent = new Intent(context, BonPlanActivity.class);
                         intent.putExtra("color", category);
+                        intent.putExtra("position", v.getId());
                         context.startActivity(intent);
 
                     }

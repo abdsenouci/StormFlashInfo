@@ -20,4 +20,24 @@ public class Horaire {
         Samedi = samedi;
         Dimanche = dimanche;
     }
+
+    public static int getPositionHoraire(int idHoraire)
+    {
+        int position = -1;
+        for(int i=0; i<DataListes.Horaires.size(); i++)
+        {
+            if (DataListes.Horaires.get(i).IdHoraire == idHoraire)
+            {
+                position = i;
+            }
+        }
+        return position;
+    }
+
+    public int[][] parseJours()
+    {
+
+        int[][] res = {{0,1,2,3,4,5,6}{this.Lundi, this.Mardi, this.Mercredi, this.}};
+    }
+
 }

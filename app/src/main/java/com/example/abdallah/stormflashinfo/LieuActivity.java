@@ -1,13 +1,48 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class LieuActivity extends AppCompatActivity {
+public class LieuActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lieu);
+        TextView Adr = findViewById(R.id.AdrView);
+        TextView Tel = findViewById(R.id.TelView);
+        TextView Lun = findViewById(R.id.LunView);
+        TextView Mar = findViewById(R.id.MarView);
+        TextView Mer = findViewById(R.id.MerView);
+        TextView Jeu = findViewById(R.id.JeuView);
+        TextView Ven = findViewById(R.id.VenView);
+        TextView Sam = findViewById(R.id.SamView);
+        TextView Dim = findViewById(R.id.DimView);
+        Intent intent = getIntent();
+        Lieu lieu = DataListes.Lieux.get(intent.getIntExtra("position",(-1)));
+        int positionHoraire = Horaire.getPositionHoraire(lieu.IdHor);
+        Horaire horaire = DataListes.Horaires.get(positionHoraire);
+
+
+        Adr.setText(lieu.AdresseLieu);
+        Tel.setText(lieu.Tel);
+        Lun.setText(lieu.);
+        Mar.setText();
+        Mer.setText();
+        Jeu.setText();
+        Ven.setText();
+        Sam.setText();
+        Dim.setText();
+
+        nomLieu.setText(lieu.NomLieu);
+        periode.setText(lieu.DateDeb);
+        desc.setText(lieu.DescBonPlan);
+
+
     }
 }
