@@ -173,7 +173,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Switch"
+                android:text="Lundi"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
@@ -184,7 +186,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Switch"
+                android:text="Mardi"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switch2" />
 
@@ -195,7 +199,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Switch"
+                android:text="Mercredi"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switch3" />
 
@@ -206,7 +212,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Switch"
+                android:text="Jeudi"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switch4" />
 
@@ -217,7 +225,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Switch"
+                android:text="Vendredi"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switch5" />
 
@@ -228,7 +238,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Switch"
+                android:text="Samedi"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/switch6" />
 
@@ -238,7 +250,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:text="Switch"
+                android:text="Dimanche"
+                android:textOff = "0"
+                android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="487dp" />
 
