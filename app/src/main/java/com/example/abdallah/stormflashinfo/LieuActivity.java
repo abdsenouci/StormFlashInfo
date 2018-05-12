@@ -10,8 +10,7 @@ public class LieuActivity extends AppCompatActivity
 {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lieu);
         TextView Adr = findViewById(R.id.AdrView);
@@ -24,25 +23,21 @@ public class LieuActivity extends AppCompatActivity
         TextView Sam = findViewById(R.id.SamView);
         TextView Dim = findViewById(R.id.DimView);
         Intent intent = getIntent();
-        Lieu lieu = DataListes.Lieux.get(intent.getIntExtra("position",(-1)));
+        Lieu lieu = DataListes.Lieux.get(intent.getIntExtra("position", (-1)));
         int positionHoraire = Horaire.getPositionHoraire(lieu.IdHor);
         Horaire horaire = DataListes.Horaires.get(positionHoraire);
 
-
-        Adr.setText(lieu.AdresseLieu);
-        Tel.setText(lieu.Tel);
-        Lun.setText(lieu.);
-        Mar.setText();
-        Mer.setText();
-        Jeu.setText();
-        Ven.setText();
-        Sam.setText();
-        Dim.setText();
+        horaire.setTextView(Lun, 0);
+        horaire.setTextView(Mar, 1);
+        horaire.setTextView(Mer, 2);
+        horaire.setTextView(Jeu, 3);
+        horaire.setTextView(Ven, 4);
+        horaire.setTextView(Sam, 5);
+        horaire.setTextView(Dim, 6);
 
         nomLieu.setText(lieu.NomLieu);
         periode.setText(lieu.DateDeb);
         desc.setText(lieu.DescBonPlan);
-
 
     }
 }

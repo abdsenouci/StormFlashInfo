@@ -1,5 +1,7 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.widget.TextView;
+
 public class Horaire {
     public int IdHoraire;
     public int[][] planning;
@@ -29,12 +31,23 @@ public class Horaire {
         return position;
     }
 
-    private void setJour(String jour, int id)
+    private void setJour(String jour, int index)
     {
         String[] parsed = jour.split(".");
-        planning[id][0]= Integer.valueOf(parsed[0]);
-        planning[id][1]= Integer.valueOf(parsed[1]);
-        planning[id][2]= Integer.valueOf(parsed[2]);
+        planning[index][0]= Integer.valueOf(parsed[0]);
+        planning[index][1]= Integer.valueOf(parsed[1]);
+        planning[index][2]= Integer.valueOf(parsed[2]);
     }
 
+    public void setTextView(TextView tv, int index)
+    {
+        if (this.planning[index][0]==1)
+        {
+            String horaires = "de " + planning[index][1] + "h à " + planning[index][2] + "h";
+            tv.setText(horaires);
+        }else
+        {
+            tv.setText("Fermé");
+        }
+    }
 }
