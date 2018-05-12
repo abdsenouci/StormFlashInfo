@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -29,10 +32,8 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
 
     EditText DateDeb, DateFin;
     Button btnInsert;
-    String IdCategorie;
-    String IdLieu;
-    int CategorieId = 0;
-    int LieuId = 1;
+    int CategorieId;
+    int LieuId;
 
 
     @Override
@@ -45,6 +46,34 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         CategorieId = intent.getIntExtra("color", -1);
         ObjBonPlan = findViewById(R.id.ObjBonPlan);
         DescBonPlan = findViewById(R.id.DescBonPlan);
+        Spinner listeCat = findViewById(R.id.spinnerCat);
+        this.setCategories(listeCat);
+        listeCat.setSelection(CategorieId);
+        listeCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                CategorieId = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        Spinner listeLieux = findViewById(R.id.spinnerLieux);
+        this.setLieux(listeLieux);
+        listeLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                LieuId = DataListes.Lieux.get(selectedItemView.getId()).IdLieu;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
 
         DateDeb = findViewById(R.id.DateDeb);
         DateDeb.setOnClickListener(new View.OnClickListener()
@@ -63,7 +92,6 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
-
         });
         DateDebList = new DatePickerDialog.OnDateSetListener()
         {
@@ -114,11 +142,28 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         btnInsert = (Button)findViewById(R.id.btnInsert);
         btnInsert.setOnClickListener(this);
 
-        IdCategorie = String.valueOf(CategorieId);
-        IdLieu = String.valueOf(LieuId);
-
     }
 
+    public void setCategories(Spinner s)
+    {
+        for(int i=0;i<DataListes.Categories.length;i++)
+        {
+            TextView tv = new TextView(this);
+            tv.setText(DataListes.Categories[i]);
+            s.addView(tv);
+        }
+    }
+
+    public void setLieux(Spinner s)
+    {
+        for(int i=0;i<DataListes.Lieux.size();i++)
+        {
+            TextView tv = new TextView(this);
+            tv.setText(DataListes.Lieux.get(i).NomLieu);
+            tv.setId(i);
+            s.addView(tv);
+        }
+    }
 
     @Override
     public void onClick(View v)
@@ -128,8 +173,8 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         postData.put("TxtDescBonPlan", DescBonPlan.getText().toString());
         postData.put("TxtDateDeb", FinalDateDeb);
         postData.put("TxtDateFin", FinalDateFin);
-        postData.put("TxtIdCat", IdCategorie);
-        postData.put("TxtIdLieu", IdLieu);
+        postData.put("TxtIdCat", String.valueOf(CategorieId));
+        postData.put("TxtIdLieu", String.valueOf(LieuId));
         //postData.put("Mobile", "Android");
 
         PostResponseAsyncTask taskInsert = new PostResponseAsyncTask(NouveauBonPlanActivity.this,

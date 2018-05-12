@@ -8,6 +8,7 @@ public class DataListes {
     public static ArrayList<Lieu> Lieux;
     public static ArrayList<BonPlan> BonPlans;
     public static ArrayList<Horaire> Horaires;
+    public static String[] Categories = {"Bar", "Restaurant", "Culture", "Sport", "Concert","NightClub", "Cinéma"};
 
     public static void setLieux(ArrayList<String> list)
     {

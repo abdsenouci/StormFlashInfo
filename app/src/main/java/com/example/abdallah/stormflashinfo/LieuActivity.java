@@ -35,9 +35,6 @@ public class LieuActivity extends AppCompatActivity
         horaire.setTextView(Sam, 5);
         horaire.setTextView(Dim, 6);
 
-        nomLieu.setText(lieu.NomLieu);
-        periode.setText(lieu.DateDeb);
-        desc.setText(lieu.DescBonPlan);
 
     }
 }
