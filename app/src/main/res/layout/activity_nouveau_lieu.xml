@@ -88,7 +88,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/line" />
 
             <EditText
-                android:id="@+id/textView1"
+                android:id="@+id/NomLieu"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -106,7 +106,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/lieu"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+                app:layout_constraintTop_toBottomOf="@+id/NomLieu" />
 
             <EditText
                 android:id="@+id/spinnerLieux"
@@ -116,10 +116,10 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+                app:layout_constraintTop_toBottomOf="@+id/NomLieu" />
 
             <EditText
-                android:id="@+id/spinner3"
+                android:id="@+id/CpLieu"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -150,7 +150,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+                app:layout_constraintTop_toBottomOf="@+id/CpLieu" />
 
             <TextView
                 android:id="@+id/textView38"
@@ -167,7 +167,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/line2" />
 
             <Switch
-                android:id="@+id/switch2"
+                android:id="@+id/LunSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -180,7 +180,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
             <Switch
-                android:id="@+id/switch3"
+                android:id="@+id/MarSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -190,10 +190,10 @@
                 android:textOff = "0"
                 android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch2" />
+                app:layout_constraintTop_toBottomOf="@+id/LunSwitch" />
 
             <Switch
-                android:id="@+id/switch4"
+                android:id="@+id/MerSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -203,10 +203,10 @@
                 android:textOff = "0"
                 android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch3" />
+                app:layout_constraintTop_toBottomOf="@+id/MarSwitch" />
 
             <Switch
-                android:id="@+id/switch5"
+                android:id="@+id/JeuSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -216,10 +216,10 @@
                 android:textOff = "0"
                 android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch4" />
+                app:layout_constraintTop_toBottomOf="@+id/MerSwitch" />
 
             <Switch
-                android:id="@+id/switch6"
+                android:id="@+id/VenSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -229,30 +229,30 @@
                 android:textOff = "0"
                 android:textOn = "1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch5" />
+                app:layout_constraintTop_toBottomOf="@+id/JeuSwitch" />
 
             <Switch
-                android:id="@+id/switch7"
+                android:id="@+id/SamSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Samedi"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/switch6" />
+                app:layout_constraintTop_toBottomOf="@+id/VenSwitch" />
 
             <Switch
-                android:id="@+id/switch8"
+                android:id="@+id/DimSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:text="Dimanche"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="487dp" />
 

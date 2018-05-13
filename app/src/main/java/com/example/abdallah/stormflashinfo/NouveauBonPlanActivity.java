@@ -70,24 +70,19 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         });
 
         Spinner spinnerLieux = findViewById(R.id.spinnerLieux);
-        List<String> listeLieux = new ArrayList<String>();
+        List<String> listeLieux = new ArrayList<>();
         this.setLieux(listeLieux);
         ArrayAdapter<String> adapterLieux = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, listeLieux);
         adapterLieux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLieux.setAdapter(adapterLieux);
-        spinnerLieux.setSelection(CategorieId);
-
-
-
-
-
-
-
+        spinnerLieux.setSelection(0);
         spinnerLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Log.e("AAAAAAAAAAAAAAAAAAAAA","IJIIJIJIJIJIJIJIJIJIJIJIJ");
                 LieuId = DataListes.Lieux.get(selectedItemView.getId()).IdLieu;
+                Log.e("AAAAAAAAAAAAAAAAAAAAA","IJIIJIJIJIJIJIJIJIJIJIJIJ");
             }
 
             @Override
