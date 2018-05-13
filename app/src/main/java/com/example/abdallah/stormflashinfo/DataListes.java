@@ -1,6 +1,13 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -9,6 +16,7 @@ public class DataListes {
     public static ArrayList<BonPlan> BonPlans;
     public static ArrayList<Horaire> Horaires;
     public static String[] Categories = {"Bar", "Restaurant", "Culture", "Sport", "Concert","NightClub", "Cinéma"};
+
 
     public static void setLieux(ArrayList<String> list)
     {

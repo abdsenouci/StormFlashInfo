@@ -1,44 +1,19 @@
 package com.example.abdallah.stormflashinfo;
 
 import android.content.Intent;
-import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
-import android.os.AsyncTask;
-import android.widget.Toast;
-
 
 public class launcherActivity extends AppCompatActivity
 {
-    static ArrayList<String> ListeLieux;
-    static ArrayList<String> ListeBonPlan;
-    static ArrayList<String> ListeHoraire;
 
     String HttpURL_Lieu = "http://10.0.2.2:8888/StormFlash/LieuTotal.php";
     String HttpURL_BonPlan = "http://10.0.2.2:8888/StormFlash/BonPlanTotal.php";
     String HttpURL_Horaires = "http://10.0.2.2:8888/StormFlash/HorairesTotal.php";
-
-    private static void setListeL(ArrayList<String> liste)
-    {
-        ListeLieux = liste;
-    }
-
-   private static void setListeB(ArrayList<String> liste)
-    {
-        ListeBonPlan = liste;
-    }
-
-    private static void setListeH(ArrayList<String> liste)
-    {
-        ListeHoraire = liste;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,20 +21,12 @@ public class launcherActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_launcher);
-        new launcherActivity.JsonParser(this).execute();
+        new NewJsonParser(this).execute();
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        DataListes.Lieux = new ArrayList<>();
-        DataListes.BonPlans = new ArrayList<>();
-        DataListes.Horaires = new ArrayList<>();
-
-        DataListes.setLieux(ListeLieux);
-        DataListes.setBonPlans(ListeBonPlan);
-        DataListes.setHoraires(ListeHoraire);
         
         new Handler().postDelayed(new Runnable()
         {
@@ -73,6 +40,7 @@ public class launcherActivity extends AppCompatActivity
         }, 3000);
     }
 
+    /*
     private class JsonParser extends AsyncTask<Void, Void, Void>
     {
         public Context context;
@@ -190,7 +158,6 @@ public class launcherActivity extends AppCompatActivity
 
                                   ListHoraire.add(AllHoraire);
                             }
-
                         }
 
                         catch (JSONException e)
@@ -216,13 +183,15 @@ public class launcherActivity extends AppCompatActivity
 
             if (ListLieu != null || ListBonPlan != null || ListHoraire != null)
             {
-                launcherActivity.setListeL(ListLieu);
-                launcherActivity.setListeB(ListBonPlan);
-                launcherActivity.setListeH(ListHoraire);
-            }
+                DataListes.Lieux = new ArrayList<>();
+                DataListes.BonPlans = new ArrayList<>();
+                DataListes.Horaires = new ArrayList<>();
 
+                DataListes.setLieux(ListeLieux);
+                DataListes.setBonPlans(ListeBonPlan);
+                DataListes.setHoraires(ListeHoraire);
+            }
             return null;
         }
-
-    }
+    }*/
 }

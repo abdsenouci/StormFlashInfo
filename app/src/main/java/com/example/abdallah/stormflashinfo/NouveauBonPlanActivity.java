@@ -184,13 +184,13 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             public void processFinish(String s)
             {
                 Log.d(LOG, s);
-                if(s.contains("success"))
+                /*if(s.contains("success"))
                 {
                     Toast.makeText(NouveauBonPlanActivity.this, "Insert Successfully", Toast.LENGTH_LONG).show();
                     Intent in = new Intent(NouveauBonPlanActivity.this, ListeBonPlansActivity.class);
                     startActivity(in);
                 }
-                else
+                else*/
                     finish();
             }
         });
