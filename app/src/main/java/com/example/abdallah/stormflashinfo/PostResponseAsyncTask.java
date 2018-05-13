@@ -44,7 +44,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
 
     //Constructor
     public PostResponseAsyncTask(Context context,
-                                 AsyncResponse asyncResponse){
+                                 AsyncResponse asyncResponse)
+    {
         this.asyncResponse = asyncResponse;
         this.context = context;
     }
@@ -53,8 +54,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
     //Constructor
     public PostResponseAsyncTask(Context context,
                                  boolean showLoadingMessage,
-                                 AsyncResponse asyncResponse
-    ){
+                                 AsyncResponse asyncResponse)
+    {
         this.asyncResponse = asyncResponse;
         this.context = context;
         this.showLoadingMessage = showLoadingMessage;
@@ -62,7 +63,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
 
     public PostResponseAsyncTask(Context context,
                                  HashMap<String, String> postData,
-                                 AsyncResponse asyncResponse){
+                                 AsyncResponse asyncResponse)
+    {
         this.context = context;
         this.postData = postData;
         this.asyncResponse = asyncResponse;
@@ -72,8 +74,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
     public PostResponseAsyncTask(Context context,
                                  HashMap<String, String> postData,
                                  boolean showLoadingMessage,
-                                 AsyncResponse asyncResponse
-    ){
+                                 AsyncResponse asyncResponse)
+    {
         this.context = context;
         this.postData = postData;
         this.asyncResponse = asyncResponse;
@@ -82,7 +84,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
 
     public PostResponseAsyncTask(Context context,
                                  String loadingMessage,
-                                 AsyncResponse asyncResponse){
+                                 AsyncResponse asyncResponse)
+    {
         this.context = context;
         this.loadingMessage = loadingMessage;
         this.asyncResponse = asyncResponse;
@@ -91,7 +94,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
     public PostResponseAsyncTask(Context context,
                                  HashMap<String, String> postData,
                                  String loadingMessage,
-                                 AsyncResponse asyncResponse){
+                                 AsyncResponse asyncResponse)
+    {
         this.context = context;
         this.postData = postData;
         this.loadingMessage = loadingMessage;
@@ -138,8 +142,10 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
 
 
     @Override
-    protected void onPreExecute() {
-        if(showLoadingMessage == true){
+    protected void onPreExecute()
+    {
+        if(showLoadingMessage == true)
+        {
             progressDialog = new ProgressDialog(context);
             progressDialog.setMessage(loadingMessage);
             progressDialog.show();
@@ -149,16 +155,19 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
     }//onPreExecute
 
     @Override
-    protected String doInBackground(String... urls){
+    protected String doInBackground(String... urls)
+    {
 
         String result = "";
-        for(int i = 0; i <= 0; i++){
+        for(int i = 0; i <= 0; i++)
+        {
             result = invokePost(urls[i], postData);
         }
         return result;
     }//doInBackground
 
-    private String invokePost(String requestURL, HashMap<String, String> postDataParams) {
+    private String invokePost(String requestURL, HashMap<String, String> postDataParams)
+    {
 
         URL url;
         String response = "";
@@ -181,10 +190,12 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
             os.close();
             int responseCode = conn.getResponseCode();
 
-            if (responseCode == HttpsURLConnection.HTTP_OK) {
+            if (responseCode == HttpsURLConnection.HTTP_OK)
+            {
                 String line;
                 BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                while ((line = br.readLine()) != null) {
+                while ((line = br.readLine()) != null)
+                {
                     response+=line;
                 }
             }
@@ -213,7 +224,8 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
 
     }//performPostCall
 
-    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
+    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException
+    {
         StringBuilder result = new StringBuilder();
         boolean first = true;
 
@@ -232,35 +244,46 @@ public class PostResponseAsyncTask extends AsyncTask<String, Void, String>
     }//getPostDataString
 
     @Override
-    protected void onPostExecute(String result) {
-        if(showLoadingMessage == true){
-            if(progressDialog.isShowing()){
+    protected void onPostExecute(String result)
+    {
+        if(showLoadingMessage == true)
+        {
+            if(progressDialog.isShowing())
+            {
                 progressDialog.dismiss();
             }
         }
 
         result = result.trim();
 
-        if(asyncResponse != null){
+        if(asyncResponse != null)
+        {
             asyncResponse.processFinish(result);
         }
 
-        if(exception != null) {
-            if(exceptionHandler != null){
+        if(exception != null)
+        {
+            if(exceptionHandler != null)
+            {
                 exceptionHandler.handleException(exception);
             }
-            if(eachExceptionsHandler != null){
+            if(eachExceptionsHandler != null)
+            {
                 Log.d(LOG, "" + exception.getClass().getSimpleName());
-                if(exception instanceof MalformedURLException){
+                if(exception instanceof MalformedURLException)
+                {
                     eachExceptionsHandler.handleMalformedURLException((MalformedURLException) exception);
                 }
-                else if(exception instanceof ProtocolException){
+                else if(exception instanceof ProtocolException)
+                {
                     eachExceptionsHandler.handleProtocolException((ProtocolException) exception);
                 }
-                else if(exception instanceof UnsupportedEncodingException){
+                else if(exception instanceof UnsupportedEncodingException)
+                {
                     eachExceptionsHandler.handleUnsupportedEncodingException((UnsupportedEncodingException) exception);
                 }
-                else if(exception instanceof IOException){
+                else if(exception instanceof IOException)
+                {
                     eachExceptionsHandler.handleIOException((IOException) exception);
                 }
             }
