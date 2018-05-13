@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -16,8 +17,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class NouveauBonPlanActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -46,10 +50,14 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         CategorieId = intent.getIntExtra("color", -1);
         ObjBonPlan = findViewById(R.id.ObjBonPlan);
         DescBonPlan = findViewById(R.id.DescBonPlan);
-        Spinner listeCat = findViewById(R.id.spinnerCat);
-        this.setCategories(listeCat);
-        listeCat.setSelection(CategorieId);
-        listeCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Spinner spinnerCat = findViewById(R.id.spinnerCat);
+        List<String> listeCat = Arrays.asList(DataListes.Categories);
+        ArrayAdapter<String> adapterCat = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, listeCat);
+        adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCat.setAdapter(adapterCat);
+        spinnerCat.setSelection(CategorieId);
+        spinnerCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 CategorieId = position;
@@ -61,9 +69,22 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             }
         });
 
-        Spinner listeLieux = findViewById(R.id.spinnerLieux);
+        Spinner spinnerLieux = findViewById(R.id.spinnerLieux);
+        List<String> listeLieux = new ArrayList<String>();
         this.setLieux(listeLieux);
-        listeLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ArrayAdapter<String> adapterLieux = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, listeLieux);
+        adapterLieux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLieux.setAdapter(adapterLieux);
+        spinnerLieux.setSelection(CategorieId);
+
+
+
+
+
+
+
+        spinnerLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 LieuId = DataListes.Lieux.get(selectedItemView.getId()).IdLieu;
@@ -144,24 +165,11 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
 
     }
 
-    public void setCategories(Spinner s)
-    {
-        for(int i=0;i<DataListes.Categories.length;i++)
-        {
-            TextView tv = new TextView(this);
-            tv.setText(DataListes.Categories[i]);
-            s.addView(tv);
-        }
-    }
-
-    public void setLieux(Spinner s)
+    public void setLieux(List<String> l)
     {
         for(int i=0;i<DataListes.Lieux.size();i++)
         {
-            TextView tv = new TextView(this);
-            tv.setText(DataListes.Lieux.get(i).NomLieu);
-            tv.setId(i);
-            s.addView(tv);
+            l.add(DataListes.Lieux.get(i).NomLieu);
         }
     }
 
