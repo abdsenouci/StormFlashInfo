@@ -1,5 +1,6 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 public class Horaire {
@@ -33,10 +34,16 @@ public class Horaire {
 
     private void setJour(String jour, int index)
     {
-        String[] parsed = jour.split(".");
-        planning[index][0]= Integer.valueOf(parsed[0]);
-        planning[index][1]= Integer.valueOf(parsed[1]);
-        planning[index][2]= Integer.valueOf(parsed[2]);
+        if(jour.substring(0,1)=="1")
+        {
+            String[] parsed = jour.split(".");
+            planning[index][0]= Integer.valueOf(parsed[0]);
+            planning[index][1]= Integer.valueOf(parsed[1]);
+            planning[index][2]= Integer.valueOf(parsed[2]);
+        }else
+        {
+            planning[index][0]= Integer.valueOf(jour.substring(0,1));
+        }
     }
 
     public void setTextView(TextView tv, int index)
