@@ -25,7 +25,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
     Button btnInsert;
 
     int CategorieId;
-    int HoraireId;
+    int HoraireId = 5;
 
 
     @Override
