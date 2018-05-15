@@ -4,11 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class NouveauLieuActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -28,6 +33,30 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nouveau_lieu);
+
+        Spinner spinnerCat = findViewById(R.id.spinnerCat);
+        List<String> listeCat = Arrays.asList(DataListes.Categories);
+
+        ArrayAdapter<String> adapterCat = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, listeCat);
+
+        adapterCat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCat.setAdapter(adapterCat);
+        spinnerCat.setSelection(CategorieId);
+        spinnerCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
+            {
+                CategorieId = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView)
+            {
+                // your code here
+            }
+        });
 
         NomLieu = findViewById(R.id.NomLieu);
         AdrLieu = findViewById(R.id.spinnerLieux);
@@ -111,7 +140,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
     }
 
-    public void execut_task_horaires
+    public void execut_task_horaires()
     {
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
@@ -141,12 +170,13 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 finish();
             }
         });
-        taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraire.php");
+        taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
     }
 
     @Override
     public void onClick(View v)
     {
-
+        execut_task_lieu();
+        execut_task_horaires();
     }
 }
