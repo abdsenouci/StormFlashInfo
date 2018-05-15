@@ -22,9 +22,9 @@ public class launcherActivity extends AppCompatActivity
     static ArrayList<String> ListeBonPlan;
     static ArrayList<String> ListeHoraires;
 
-    String HttpURL_Lieu = "http://10.0.2.2:8888/StormFlash/LieuTotal.php";
-    String HttpURL_BonPlan = "http://10.0.2.2:8888/StormFlash/BonPlanTotal.php";
-    String HttpURL_Horaires = "http://10.0.2.2:8888/StormFlash/HorairesTotal.php";
+    String HttpURL_Lieu = "http://10.0.2.2:80/LieuTotal.php";
+    String HttpURL_BonPlan = "http://10.0.2.2:80/BonPlanTotal.php";
+    String HttpURL_Horaires = "http://10.0.2.2:80/HorairesTotal.php";
 
     private static void setListeL(ArrayList<String> liste)
     {
