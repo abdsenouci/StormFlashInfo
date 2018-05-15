@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,8 @@ public class ListeLieuxActivity extends AppCompatActivity
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = Utils.getColors(context, category);
         genererListe();
-        initColors(colors);
+        initColors();
+        newLieu();
     }
 
     public void genererListe()
@@ -48,7 +50,8 @@ public class ListeLieuxActivity extends AppCompatActivity
                 txt.setText(data);
                 txt.setId(i);
                 txt.setBackgroundColor(colors[1]);
-                txt.setHeight(200);
+                txt.setTextColor(ContextCompat.getColor(context,android.R.color.white));
+                txt.setTextSize(20);
                 txt.setPadding(10, 10, 10, 10);
                 txt.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -66,7 +69,7 @@ public class ListeLieuxActivity extends AppCompatActivity
         }
     }
 
-    public void initColors(int[] colors)
+    public void initColors()
     {
         AppBarLayout appBar = findViewById(R.id.appbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -74,10 +77,18 @@ public class ListeLieuxActivity extends AppCompatActivity
         appBar.setBackgroundColor((colors[0]));
     }
 
-    public void newLieu(View view) {
-        Intent intent = new Intent(this, NouveauBonPlanActivity.class);
-        intent.putExtra("color",category);
-        startActivity(intent);
+
+    public void newLieu()
+    {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, NouveauLieuActivity.class);
+                intent.putExtra("color",category);
+                startActivity(intent);
+            }
+        });
     }
 
 }

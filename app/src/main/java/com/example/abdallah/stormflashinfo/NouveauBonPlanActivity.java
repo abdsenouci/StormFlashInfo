@@ -1,7 +1,6 @@
 package com.example.abdallah.stormflashinfo;
 
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -91,9 +89,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         spinnerLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                Log.e("AAAAAAAAAAAAAAAAAAAAA","IJIIJIJIJIJIJIJIJIJIJIJIJ");
                 LieuId = DataListes.Lieux.get(position).IdLieu;
-                Log.e("AAAAAAAAAAAAAAAAAAAAA","IJIIJIJIJIJIJIJIJIJIJIJIJ");
             }
 
             @Override

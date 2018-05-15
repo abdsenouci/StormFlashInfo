@@ -44,7 +44,7 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
        genererListe();
 
-        initColors(colors);
+        initColors();
         newBonPlan();
     }
 
@@ -57,12 +57,14 @@ public class ListeBonPlansActivity extends AppCompatActivity
             {
                 TextView txt = new TextView(this);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                lp.setMargins(10, 5, 5, 10);
+                lp.setMargins(10, 10, 10, 10);
                 data = DataListes.BonPlans.get(i).NomLieu + "\n" + DataListes.BonPlans.get(i).ObjBonPlan + "\nDu " + DataListes.BonPlans.get(i).DateDeb + " au " + DataListes.BonPlans.get(i).DateFin;
                 txt.setText(data);
                 txt.setId(i);
                 txt.setBackgroundColor(colors[1]);
-                txt.setHeight(200);
+                txt.setHeight(230);
+                txt.setTextColor(ContextCompat.getColor(context,android.R.color.white));
+                txt.setTextSize(20);
                 txt.setPadding(10, 10, 10, 10);
                 bp = DataListes.BonPlans.get(i);
                 txt.setOnClickListener(new View.OnClickListener() {
@@ -94,14 +96,12 @@ public class ListeBonPlansActivity extends AppCompatActivity
 
     }
 
-    public void initColors(int[] colors)
+    public void initColors()
     {
         AppBarLayout appBar = findViewById(R.id.appbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        //FloatingActionButton fbtn = findViewById(R.id.floatingActionButton);
         toolbar.setBackgroundColor(colors[0]);
         appBar.setBackgroundColor(colors[0]);
-        //fbtn.setBackgroundColor(colors[2]);
     }
 
 }
