@@ -2,11 +2,15 @@ package com.example.abdallah.stormflashinfo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 
-public class NouveauLieuActivity extends AppCompatActivity
+import java.util.HashMap;
+
+public class NouveauLieuActivity extends AppCompatActivity implements View.OnClickListener
 {
     final String LOG = " NouveauLieuActivity";
 
@@ -25,7 +29,7 @@ public class NouveauLieuActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nouveau_lieu);
 
-        /*NomLieu = findViewById(R.id.NomLieu);
+        NomLieu = findViewById(R.id.NomLieu);
         AdrLieu = findViewById(R.id.spinnerLieux);
         CpLieu = findViewById(R.id.CpLieu);
         TelLieu = findViewById(R.id.TelLieu);
@@ -56,7 +60,93 @@ public class NouveauLieuActivity extends AppCompatActivity
 
         Dim = findViewById(R.id.DimSwitch);
         Di1 = findViewById(R.id.Di1);
-        Di2 = findViewById(R.id.Di2);*/
+        Di2 = findViewById(R.id.Di2);
+
+    }
+
+    public String concat_horaire(Switch Day, EditText part_one, EditText part_two)
+    {
+        String res;
+        String one;
+        String two;
+        String tree;
+
+        one = String.valueOf(Day);
+        two = part_one.getText().toString();
+        tree = part_two.getText().toString();
+
+        res =  one + "." + two + "." + tree;
+
+        return (res);
+    }
+
+    public void execut_task_lieu()
+    {
+        HashMap<String,String> postData = new HashMap<>();
+        postData.put("TxtNomLieu", NomLieu.getText().toString());
+        postData.put("TxtAdrLieu", AdrLieu.getText().toString());
+        postData.put("TxtTelLieu", TelLieu.getText().toString());
+        postData.put("TxtCpLieu", CpLieu.getText().toString());
+        postData.put("TxtIdCat", String.valueOf(CategorieId));
+        postData.put("TxtIdHoraires", String.valueOf(HoraireId));
+        //postData.put("Mobile", "Android");
+
+        PostResponseAsyncTask taskInsert_lieu = new PostResponseAsyncTask(NouveauLieuActivity.this,
+                postData, new AsyncResponse()
+        {
+            @Override
+            public void processFinish(String s)
+            {
+                Log.d(LOG, s);
+                /*if(s.contains("success"))
+                {
+                    Toast.makeText(NouveauBonPlanActivity.this, "Insert Successfully", Toast.LENGTH_LONG).show();
+                    Intent in = new Intent(NouveauBonPlanActivity.this, ListeBonPlansActivity.class);
+                    startActivity(in);
+                }
+                else*/
+                finish();
+            }
+        });
+        taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
+    }
+
+    public void execut_task_horaires
+    {
+        HashMap<String,String> postData = new HashMap<>();
+        postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
+        postData.put("TxtMardi", concat_horaire(Mar, Ma1, Ma2));
+        postData.put("TxtMercredi", concat_horaire(Mer, Me2, Me2));
+        postData.put("TxtJeudi", concat_horaire(Jeu, Je1, Je2));
+        postData.put("TxtVendredi", concat_horaire(Ven, Ve1, Ve2));
+        postData.put("TxtSamedi", concat_horaire(Sam, Sa1, Sa2));
+        postData.put("TxtDimanche", concat_horaire(Dim, Di1, Di2));
+        postData.put("TxtIdHoraire", String.valueOf(HoraireId));
+
+
+        PostResponseAsyncTask taskInsert_horaires = new PostResponseAsyncTask(NouveauLieuActivity.this,
+                postData, new AsyncResponse()
+        {
+            @Override
+            public void processFinish(String s)
+            {
+                Log.d(LOG, s);
+                /*if(s.contains("success"))
+                {
+                    Toast.makeText(NouveauBonPlanActivity.this, "Insert Successfully", Toast.LENGTH_LONG).show();
+                    Intent in = new Intent(NouveauBonPlanActivity.this, ListeBonPlansActivity.class);
+                    startActivity(in);
+                }
+                else*/
+                finish();
+            }
+        });
+        taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraire.php");
+    }
+
+    @Override
+    public void onClick(View v)
+    {
 
     }
 }

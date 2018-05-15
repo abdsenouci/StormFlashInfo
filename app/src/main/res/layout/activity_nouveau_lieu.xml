@@ -33,8 +33,8 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appbar">
 
@@ -104,7 +104,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/lieu"
+                android:text="@string/adresse"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/NomLieu" />
 
@@ -135,7 +135,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="TextView"
+                android:text="CP"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinnerLieux" />
 
@@ -150,7 +150,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/CpLieu" />
+                app:layout_constraintTop_toBottomOf="@+id/TelLieu" />
 
             <TextView
                 android:id="@+id/textView38"
@@ -174,8 +174,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Lundi"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
@@ -187,8 +187,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Mardi"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/LunSwitch" />
 
@@ -200,8 +200,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Mercredi"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MarSwitch" />
 
@@ -213,8 +213,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Jeudi"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MerSwitch" />
 
@@ -226,8 +226,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Vendredi"
-                android:textOff = "0"
-                android:textOn = "1"
+                android:textOff="0"
+                android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/JeuSwitch" />
 
@@ -254,7 +254,155 @@
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="487dp" />
+                tools:layout_editor_absoluteY="531dp" />
+
+            <EditText
+                android:id="@+id/Lu2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="326dp" />
+
+            <EditText
+                android:id="@+id/Ma1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="361dp" />
+
+            <EditText
+                android:id="@+id/Me1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="396dp" />
+
+            <EditText
+                android:id="@+id/Lu1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="326dp" />
+
+            <EditText
+                android:id="@+id/Je1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="431dp" />
+
+            <EditText
+                android:id="@+id/Me2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="396dp" />
+
+            <EditText
+                android:id="@+id/Ve1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="466dp" />
+
+            <EditText
+                android:id="@+id/Sa1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="505dp" />
+
+            <EditText
+                android:id="@+id/Di1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="152dp"
+                tools:layout_editor_absoluteY="535dp" />
+
+            <EditText
+                android:id="@+id/Je2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="431dp" />
+
+            <EditText
+                android:id="@+id/Ve2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="466dp" />
+
+            <EditText
+                android:id="@+id/Sa2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="505dp" />
+
+            <EditText
+                android:id="@+id/Di2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="535dp" />
+
+            <EditText
+                android:id="@+id/Ma2"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                tools:layout_editor_absoluteX="240dp"
+                tools:layout_editor_absoluteY="361dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Tel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CpLieu" />
+
+            <EditText
+                android:id="@+id/TelLieu"
+                android:layout_width="240dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/CpLieu" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
