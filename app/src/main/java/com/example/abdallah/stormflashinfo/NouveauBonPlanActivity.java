@@ -1,6 +1,7 @@
 package com.example.abdallah.stormflashinfo;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,7 +26,6 @@ import java.util.List;
 public class NouveauBonPlanActivity extends AppCompatActivity implements View.OnClickListener
 {
     final String LOG = " NouveauBonPlanActivity";
-
     static String FinalDateDeb;
     static String FinalDateFin;
 
@@ -34,11 +33,14 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
     private DatePickerDialog.OnDateSetListener DateFinList;
     private EditText ObjBonPlan, DescBonPlan;
 
+    Spinner spinnerLieux;
+    ArrayAdapter<String> adapterLieux;
     EditText DateDeb, DateFin;
     Button btnInsert;
     int CategorieId;
     int LieuId;
 
+    List<String> listeLieuxStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,6 +49,12 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_nouveau_bon_plan);
 
         Intent intent = getIntent();
+
+        ArrayList<Lieu> listeLieux = new ArrayList<>();
+        listeLieuxStr = new ArrayList<>();
+
+
+
         CategorieId = intent.getIntExtra("color", -1);
         ObjBonPlan = findViewById(R.id.ObjBonPlan);
         DescBonPlan = findViewById(R.id.DescBonPlan);
@@ -61,6 +69,11 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 CategorieId = position;
+                setLieux(position);
+                adapterLieux = new ArrayAdapter<>(NouveauBonPlanActivity.this,
+                        android.R.layout.simple_spinner_item, listeLieuxStr);
+                adapterLieux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerLieux.setAdapter(adapterLieux);
             }
 
             @Override
@@ -69,19 +82,17 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             }
         });
 
-        Spinner spinnerLieux = findViewById(R.id.spinnerLieux);
-        List<String> listeLieux = new ArrayList<>();
-        this.setLieux(listeLieux);
-        ArrayAdapter<String> adapterLieux = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, listeLieux);
+        spinnerLieux = findViewById(R.id.spinnerLieux);
+        adapterLieux = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, listeLieuxStr);
         adapterLieux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerLieux.setAdapter(adapterLieux);
-        spinnerLieux.setSelection(0);
+        spinnerLieux.setSelection(0,false);
         spinnerLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 Log.e("AAAAAAAAAAAAAAAAAAAAA","IJIIJIJIJIJIJIJIJIJIJIJIJ");
-                LieuId = DataListes.Lieux.get(selectedItemView.getId()).IdLieu;
+                LieuId = DataListes.Lieux.get(position).IdLieu;
                 Log.e("AAAAAAAAAAAAAAAAAAAAA","IJIIJIJIJIJIJIJIJIJIJIJIJ");
             }
 
@@ -155,16 +166,25 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             }
         };
 
-        btnInsert = (Button)findViewById(R.id.btnInsert);
+        btnInsert = findViewById(R.id.btnInsert);
         btnInsert.setOnClickListener(this);
-
     }
 
-    public void setLieux(List<String> l)
+    public void setLieux(int idCat)
     {
+        listeLieuxStr = new ArrayList<>();
         for(int i=0;i<DataListes.Lieux.size();i++)
         {
-            l.add(DataListes.Lieux.get(i).NomLieu);
+            if(idCat>=0)
+            {
+                if(DataListes.Lieux.get(i).IdCat==CategorieId)
+                {
+                    listeLieuxStr.add(DataListes.Lieux.get(i).NomLieu);
+                }
+            }else
+            {
+                listeLieuxStr.add(DataListes.Lieux.get(i).NomLieu);
+            }
         }
     }
 
@@ -197,6 +217,6 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                     finish();
             }
         });
-        taskInsert.execute("http://10.0.2.2:8888/StormFlash/AjoutBonPlan2.php");
+        taskInsert.execute("http://10.0.2.2:80/AjoutBonPlan2.php");
     }
 }
