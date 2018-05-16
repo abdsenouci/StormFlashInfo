@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -145,7 +146,6 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         });
 
         btnInsert = findViewById(R.id.btnSend);
-        //btnInsert.setOnClickListener(this);
     }
 
     public String concat_horaire(Switch Day, EditText part_one, EditText part_two)
@@ -181,7 +181,6 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
 
     public void execut_task_lieu()
     {
-        Log.e("CCCCCCCCCCCCC", AdrLieu.getText().toString());
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtNomLieu", NomLieu.getText().toString());
         postData.put("TxtAdrLieu", AdrLieu.getText().toString());
@@ -208,14 +207,11 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 //finish();
             }
         });
-        //taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
-        taskInsert_lieu.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"http://10.0.2.2:8888/StormFlash/AjoutLieu2.php" );
-
+        taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
     }
 
     public void execut_task_horaires()
     {
-       
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtIdHoraire", String.valueOf(HoraireId));
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
@@ -244,14 +240,40 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 finish();
             }
         });
-        //taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
-        taskInsert_horaires.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"http://10.0.2.2:8888/StormFlash/AjoutHoraires.php" );
+        taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
+    }
+
+    public int gest_error(Switch btn, EditText h1, EditText h2)
+    {
+        if (btn.isChecked() && !h1.getText().toString().equals("") && !h2.getText().toString().equals(""))
+        {
+            return (1);
+        }
+        else if (!btn.isChecked() && h1.getText().toString().equals("") && h2.getText().toString().equals(""))
+        {
+            return (1);
+        }
+        else
+            return (0);
+
     }
 
     @Override
     public void onClick(View v)
     {
-        execut_task_lieu();
-        execut_task_horaires();
+        if (!NomLieu.getText().toString().equals("") && !AdrLieu.getText().toString().equals("") && !CpLieu.getText().toString().equals("") && !TelLieu.getText().toString().equals(""))
+        {
+            if (gest_error(Lun, Lu1, Lu2) == 1 && gest_error(Mar, Ma1, Ma2) == 1 && gest_error(Mer, Me1, Me2) == 1 && gest_error(Jeu, Je1, Je2) == 1
+                    && gest_error(Ven, Ve1, Ve2) == 1 && gest_error(Sam, Sa1, Sa2) == 1 && gest_error(Dim, Di1, Di2) == 1)
+            {
+                execut_task_lieu();
+                execut_task_horaires();
+            }
+            else
+            {
+                Toast toast = Toast.makeText(NouveauLieuActivity.this, "Veuillez remplir tout les champs", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
     }
 }
