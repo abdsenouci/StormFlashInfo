@@ -151,17 +151,16 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
     public String concat_horaire(Switch Day, EditText part_one, EditText part_two)
     {
         String res;
-        String one = String.valueOf(Day);
         String two = part_one.getText().toString();
         String tree = part_two.getText().toString();
 
         if(Day.isChecked())
         {
-            res =  one + "." + two + "." + tree;
+            res =  1 + "." + two + "." + tree;
         }
         else
         {
-            res = one + ".";
+            res = 0 + ".";
         }
 
         return (res);
@@ -223,7 +222,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         postData.put("TxtIdHoraire", String.valueOf(HoraireId));
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
         postData.put("TxtMardi", concat_horaire(Mar, Ma1, Ma2));
-        postData.put("TxtMercredi", concat_horaire(Mer, Me2, Me2));
+        postData.put("TxtMercredi", concat_horaire(Mer, Me1, Me2));
         postData.put("TxtJeudi", concat_horaire(Jeu, Je1, Je2));
         postData.put("TxtVendredi", concat_horaire(Ven, Ve1, Ve2));
         postData.put("TxtSamedi", concat_horaire(Sam, Sa1, Sa2));
