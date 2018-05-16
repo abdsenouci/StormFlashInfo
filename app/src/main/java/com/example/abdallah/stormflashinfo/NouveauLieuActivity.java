@@ -1,5 +1,6 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -142,9 +143,9 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 setVisible(Dim,Di1,Di2);
             }
         });
-        
-        btnInsert = findViewById(R.id.btnInsert);
-        btnInsert.setOnClickListener(this);
+
+        btnInsert = findViewById(R.id.btnSend);
+        //btnInsert.setOnClickListener(this);
     }
 
     public String concat_horaire(Switch Day, EditText part_one, EditText part_two)
@@ -181,6 +182,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
 
     public void execut_task_lieu()
     {
+        Log.e("CCCCCCCCCCCCC", AdrLieu.getText().toString());
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtNomLieu", NomLieu.getText().toString());
         postData.put("TxtAdrLieu", AdrLieu.getText().toString());
@@ -193,10 +195,10 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         PostResponseAsyncTask taskInsert_lieu = new PostResponseAsyncTask(NouveauLieuActivity.this,
                 postData, new AsyncResponse()
         {
-            @Override
+           @Override
             public void processFinish(String s)
             {
-                Log.d(LOG, s);
+              Log.d(LOG, s);
                 /*if(s.contains("success"))
                 {
                     Toast.makeText(NouveauBonPlanActivity.this, "Insert Successfully", Toast.LENGTH_LONG).show();
@@ -204,14 +206,19 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                     startActivity(in);
                 }
                 else*/
-                finish();
+                //finish();
             }
         });
-        taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
+        //taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
+        taskInsert_lieu.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"http://10.0.2.2:8888/StormFlash/AjoutLieu2.php" );
+
     }
 
     public void execut_task_horaires()
     {
+        Log.e("DDDDDDDDDDDD", Lu1.getText().toString());
+        Log.e("EEEEEEEEEEEE", Me2.getText().toString());
+
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
         postData.put("TxtMardi", concat_horaire(Mar, Ma1, Ma2));
@@ -240,7 +247,8 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 finish();
             }
         });
-        taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
+        //taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
+        taskInsert_horaires.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"http://10.0.2.2:8888/StormFlash/AjoutHoraires.php" );
     }
 
     @Override
