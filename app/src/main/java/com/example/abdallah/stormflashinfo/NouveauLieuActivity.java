@@ -215,9 +215,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
 
     public void execut_task_horaires()
     {
-        Log.e("DDDDDDDDDDDD", concat_horaire(Lun, Lu1, Lu2));
-        Log.e("EEEEEEEEEEEE", Me2.getText().toString());
-
+       
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtIdHoraire", String.valueOf(HoraireId));
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
