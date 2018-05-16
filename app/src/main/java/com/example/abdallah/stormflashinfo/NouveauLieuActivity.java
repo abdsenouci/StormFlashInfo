@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -64,32 +65,81 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         TelLieu = findViewById(R.id.TelLieu);
 
         Lun = findViewById(R.id.LunSwitch);
+        Lun.setChecked(true);
         Lu1 = findViewById(R.id.Lu1);
         Lu2 = findViewById(R.id.Lu2);
 
         Mar = findViewById(R.id.MarSwitch);
+        Mar.setChecked(true);
         Ma1 = findViewById(R.id.Ma1);
         Ma2 = findViewById(R.id.Ma2);
 
         Mer = findViewById(R.id.MerSwitch);
+        Mer.setChecked(true);
         Me1 = findViewById(R.id.Me1);
         Me2 = findViewById(R.id.Me2);
 
         Jeu = findViewById(R.id.JeuSwitch);
+        Jeu.setChecked(true);
         Je1 = findViewById(R.id.Je1);
         Je2 = findViewById(R.id.Je2);
 
         Ven = findViewById(R.id.VenSwitch);
+        Jeu.setChecked(true);
         Ve1 = findViewById(R.id.Ve1);
         Ve2 = findViewById(R.id.Ve2);
 
         Sam = findViewById(R.id.SamSwitch);
+        Sam.setChecked(true);
         Sa1 = findViewById(R.id.Sa1);
         Sa2 = findViewById(R.id.Sa2);
 
         Dim = findViewById(R.id.DimSwitch);
+        Dim.setChecked(true);
         Di1 = findViewById(R.id.Di1);
         Di2 = findViewById(R.id.Di2);
+
+        Lun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Lun,Lu1,Lu2);
+            }
+        });
+
+        Mar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Mar,Ma1,Ma2);
+            }
+        });
+
+        Mer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Mer,Me1,Me2);
+            }
+        });
+
+        Jeu.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Jeu,Je1,Je2);
+            }
+        });
+
+        Ven.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Ven,Ve1,Ve2);
+            }
+        });
+
+        Lun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Sam,Sa1,Sa2);
+            }
+        });
+
+        Lun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setVisible(Dim,Di1,Di2);
+            }
+        });
 
     }
 
@@ -107,6 +157,19 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         res =  one + "." + two + "." + tree;
 
         return (res);
+    }
+
+    public void setVisible(Switch s, EditText e1, EditText e2)
+    {
+        if(s.isChecked())
+        {
+            e1.setVisibility(View.VISIBLE);
+            e2.setVisibility(View.VISIBLE);
+        }else
+        {
+            e1.setVisibility(View.INVISIBLE);
+            e2.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void execut_task_lieu()
