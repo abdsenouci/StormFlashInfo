@@ -213,10 +213,11 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
 
     public void execut_task_horaires()
     {
-        Log.e("DDDDDDDDDDDD", Lu1.getText().toString());
+        Log.e("DDDDDDDDDDDD", concat_horaire(Lun, Lu1, Lu2));
         Log.e("EEEEEEEEEEEE", Me2.getText().toString());
 
         HashMap<String,String> postData = new HashMap<>();
+        postData.put("TxtIdHoraire", String.valueOf(HoraireId));
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
         postData.put("TxtMardi", concat_horaire(Mar, Ma1, Ma2));
         postData.put("TxtMercredi", concat_horaire(Mer, Me2, Me2));
@@ -224,7 +225,6 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         postData.put("TxtVendredi", concat_horaire(Ven, Ve1, Ve2));
         postData.put("TxtSamedi", concat_horaire(Sam, Sa1, Sa2));
         postData.put("TxtDimanche", concat_horaire(Dim, Di1, Di2));
-        postData.put("TxtIdHoraire", String.valueOf(HoraireId));
 
 
         PostResponseAsyncTask taskInsert_horaires = new PostResponseAsyncTask(NouveauLieuActivity.this,
