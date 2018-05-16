@@ -47,10 +47,8 @@ public class DataListes {
     public static void setHoraires(ArrayList<String> list)
     {
         String[] parsed = new String[7];
-        Log.e("AAAAAAAAAAAA", "CCCCCCCCCC");
         for(String s:list)
         {
-            Log.e("BBBBBBBBBBB", list.get(0));
             parsed=s.split("_-_");
             Horaires.add(new Horaire(Integer.valueOf(Integer.valueOf(parsed[0])), parsed[1], parsed[2], parsed[3], parsed[4], parsed[5], parsed[6], parsed[7]));
         }
