@@ -17,6 +17,18 @@ public class DataListes {
     public static ArrayList<Horaire> Horaires;
     public static String[] Categories = {"Bar", "Restaurant", "Culture", "Sport", "Concert","NightClub", "Cinéma"};
 
+    public static int getPositionLieuById(int id)
+    {
+        int res = 0;
+        for(int i=0;i<Lieux.size();i++)
+        {
+            if (Lieux.get(i).IdLieu==id)
+            {
+                res = i;
+            }
+        }
+        return res;
+    }
 
     public static void setLieux(ArrayList<String> list)
     {
@@ -54,6 +66,34 @@ public class DataListes {
             parsed=s.split("_-_");
             Horaires.add(new Horaire(Integer.valueOf(Integer.valueOf(parsed[0])), parsed[1], parsed[2], parsed[3], parsed[4], parsed[5], parsed[6], parsed[7]));
         }
+    }
+
+    public static int newIdLieu()
+    {
+        int res = 0;
+        for(Lieu l : Lieux)
+        {
+            if(l.IdLieu>res)
+            {
+                res=l.IdLieu;
+            }
+        }
+        res++;
+        return res;
+    }
+
+    public static int newIdBonPlan()
+    {
+        int res = 0;
+        for(BonPlan b : BonPlans)
+        {
+            if(b.IdBonPlan>res)
+            {
+                res=b.IdBonPlan;
+            }
+        }
+        res++;
+        return res;
     }
 
     public static int newIdHoraire()

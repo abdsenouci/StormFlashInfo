@@ -6,6 +6,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ public class BonPlanActivity extends AppCompatActivity {
     int category;
     Context context;
     int[] colors;
+    int positionLieu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class BonPlanActivity extends AppCompatActivity {
         colors = Utils.getColors(context, category);
         this.initColors();
         BonPlan bp = DataListes.BonPlans.get(intent.getIntExtra("position",(-1)));
+        positionLieu=DataListes.getPositionLieuById(bp.IdLieu);
         TextView obj = findViewById(R.id.textView4);
         Button nomLieu = findViewById(R.id.btnBPLieu);
         TextView periode = findViewById(R.id.textView30);
@@ -43,6 +46,14 @@ public class BonPlanActivity extends AppCompatActivity {
 
         toolbar.setBackgroundColor(colors[0]);
         appBar.setBackgroundColor(colors[0]);
+        btn.setBackgroundColor(colors[1]);
+    }
 
+    public void afficherLieu(View v)
+    {
+        Intent intent = new Intent(context, LieuActivity.class);
+        intent.putExtra("color", category);
+        intent.putExtra("position", positionLieu);
+        context.startActivity(intent);
     }
 }

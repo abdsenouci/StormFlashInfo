@@ -20,4 +20,5 @@ public class Lieu
         IdCat = idCat;
         IdHor = idHor;
     }
+
 }

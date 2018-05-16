@@ -57,7 +57,7 @@ public class ListeLieuxActivity extends AppCompatActivity
                     @Override
                     public void onClick(View v)
                     {
-                        Intent intent = new Intent(context, BonPlanActivity.class);
+                        Intent intent = new Intent(context, LieuActivity.class);
                         intent.putExtra("color", category);
                         intent.putExtra("position", v.getId());
                         context.startActivity(intent);
