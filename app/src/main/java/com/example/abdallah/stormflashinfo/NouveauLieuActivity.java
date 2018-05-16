@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.abdallah.stormflashinfo.DataListes.newIdHoraire;
+
 public class NouveauLieuActivity extends AppCompatActivity implements View.OnClickListener
 {
     final String LOG = " NouveauLieuActivity";
@@ -26,7 +28,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
     Button btnInsert;
 
     int CategorieId;
-    int HoraireId = 5;
+    int HoraireId = newIdHoraire();
 
 
     @Override
