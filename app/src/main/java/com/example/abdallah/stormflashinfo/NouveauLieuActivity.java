@@ -62,7 +62,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         });
 
         NomLieu = findViewById(R.id.NomLieu);
-        AdrLieu = findViewById(R.id.spinnerLieux);
+        AdrLieu = findViewById(R.id.AdrLieu);
         CpLieu = findViewById(R.id.CpLieu);
         TelLieu = findViewById(R.id.TelLieu);
 
