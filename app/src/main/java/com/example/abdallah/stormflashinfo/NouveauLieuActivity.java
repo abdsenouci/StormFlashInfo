@@ -181,7 +181,6 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
 
     public void execut_task_lieu()
     {
-        Log.e("CCCCCCCCCCCCC", AdrLieu.getText().toString());
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtNomLieu", NomLieu.getText().toString());
         postData.put("TxtAdrLieu", AdrLieu.getText().toString());
@@ -208,14 +207,12 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 //finish();
             }
         });
-        //taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
-        taskInsert_lieu.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"http://10.0.2.2:8888/StormFlash/AjoutLieu2.php" );
-
+        taskInsert_lieu.execute("http://10.0.2.2:8888/StormFlash/AjoutLieu2.php");
     }
 
     public void execut_task_horaires()
     {
-       
+
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtIdHoraire", String.valueOf(HoraireId));
         postData.put("TxtLundi", concat_horaire(Lun, Lu1, Lu2));
@@ -244,8 +241,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 finish();
             }
         });
-        //taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
-        taskInsert_horaires.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"http://10.0.2.2:8888/StormFlash/AjoutHoraires.php" );
+        taskInsert_horaires.execute("http://10.0.2.2:8888/StormFlash/AjoutHoraires.php");
     }
 
     @Override
