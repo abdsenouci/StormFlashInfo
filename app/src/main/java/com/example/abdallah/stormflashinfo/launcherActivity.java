@@ -22,9 +22,9 @@ public class launcherActivity extends AppCompatActivity
     static ArrayList<String> ListeBonPlan;
     static ArrayList<String> ListeHoraires;
 
-    String HttpURL_Lieu = "http://10.0.2.2:80/LieuTotal.php";
-    String HttpURL_BonPlan = "http://10.0.2.2:80/BonPlanTotal.php";
-    String HttpURL_Horaires = "http://10.0.2.2:80/HorairesTotal.php";
+    String HttpURL_Lieu = "http://10.0.2.2:8888/StormFlash/LieuTotal.php";
+    String HttpURL_BonPlan = "http://10.0.2.2:8888/StormFlash/BonPlanTotal.php";
+    String HttpURL_Horaires = "http://10.0.2.2:8888/StormFlash/HorairesTotal.php";
 
     private static void setListeL(ArrayList<String> liste)
     {
@@ -49,7 +49,7 @@ public class launcherActivity extends AppCompatActivity
         setContentView(R.layout.activity_launcher);
         new launcherActivity.JsonParser(this).execute();
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -60,9 +60,7 @@ public class launcherActivity extends AppCompatActivity
 
         DataListes.setLieux(ListeLieux);
         DataListes.setBonPlans(ListeBonPlan);
-        Log.e("AAAAAAAAAAA","BBBBBBBBBBBBB");
         DataListes.setHoraires(ListeHoraires);
-        Log.e("AAAAAAAAAAAA", "CCCCCCCCCC");
 
         new Handler().postDelayed(new Runnable()
         {
