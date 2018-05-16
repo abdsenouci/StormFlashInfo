@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.abdallah.stormflashinfo.DataListes.newIdHoraire;
+
 public class NouveauLieuActivity extends AppCompatActivity implements View.OnClickListener
 {
     final String LOG = " NouveauLieuActivity";
@@ -26,7 +28,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
     Button btnInsert;
 
     int CategorieId;
-    int HoraireId = 5;
+    int HoraireId = newIdHoraire();
 
 
     @Override
@@ -140,7 +142,9 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
                 setVisible(Dim,Di1,Di2);
             }
         });
-
+        
+        btnInsert = findViewById(R.id.btnInsert);
+        btnInsert.setOnClickListener(this);
     }
 
     public String concat_horaire(Switch Day, EditText part_one, EditText part_two)
