@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
     EditText DateDeb, DateFin;
     Button btnInsert;
     int CategorieId;
-    int LieuId;
+    int LieuId = -200;
 
     List<String> listeLieuxStr;
 
@@ -184,8 +185,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         }
     }
 
-    @Override
-    public void onClick(View v)
+    public void execut_task_bonplan()
     {
         HashMap<String,String> postData = new HashMap<>();
         postData.put("TxtObjBonPlan", ObjBonPlan.getText().toString());
@@ -210,9 +210,30 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                     startActivity(in);
                 }
                 else*/
-                    finish();
+                finish();
             }
         });
         taskInsert.execute("http://10.0.2.2:80/AjoutBonPlan2.php");
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        if (!ObjBonPlan.getText().toString().equals("") && !DescBonPlan.getText().toString().equals("") && !DateDeb.getText().toString().equals("")
+                && !DateFin.getText().toString().equals(""))
+        {
+            if (LieuId == -200)
+            {
+                Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Veuillez selectionner un lieu", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            else
+                execut_task_bonplan();
+        }
+        else
+        {
+            Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Veuillez remplir tout les champs du bonplan", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 }
