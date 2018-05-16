@@ -151,15 +151,18 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
     public String concat_horaire(Switch Day, EditText part_one, EditText part_two)
     {
         String res;
-        String one;
-        String two;
-        String tree;
+        String one = String.valueOf(Day);
+        String two = part_one.getText().toString();
+        String tree = part_two.getText().toString();
 
-        one = String.valueOf(Day);
-        two = part_one.getText().toString();
-        tree = part_two.getText().toString();
-
-        res =  one + "." + two + "." + tree;
+        if(Day.isChecked())
+        {
+            res =  one + "." + two + "." + tree;
+        }
+        else
+        {
+            res = one + ".";
+        }
 
         return (res);
     }
