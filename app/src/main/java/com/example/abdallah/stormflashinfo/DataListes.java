@@ -55,4 +55,18 @@ public class DataListes {
             Horaires.add(new Horaire(Integer.valueOf(Integer.valueOf(parsed[0])), parsed[1], parsed[2], parsed[3], parsed[4], parsed[5], parsed[6], parsed[7]));
         }
     }
+
+    public static int newIdHoraire()
+    {
+        int res = 0;
+        for(Horaire h : Horaires)
+        {
+            if(h.IdHoraire>res)
+            {
+                res=h.IdHoraire;
+            }
+        }
+        res++;
+        return res;
+    }
 }

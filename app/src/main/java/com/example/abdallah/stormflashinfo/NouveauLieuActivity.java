@@ -85,7 +85,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
         Je2 = findViewById(R.id.Je2);
 
         Ven = findViewById(R.id.VenSwitch);
-        Jeu.setChecked(true);
+        Ven.setChecked(true);
         Ve1 = findViewById(R.id.Ve1);
         Ve2 = findViewById(R.id.Ve2);
 
@@ -129,13 +129,13 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        Lun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        Sam.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setVisible(Sam,Sa1,Sa2);
             }
         });
 
-        Lun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        Dim.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setVisible(Dim,Di1,Di2);
             }
