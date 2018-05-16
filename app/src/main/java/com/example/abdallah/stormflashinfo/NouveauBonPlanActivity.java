@@ -80,7 +80,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             }
         });
 
-        spinnerLieux = findViewById(R.id.spinnerLieux);
+        spinnerLieux = findViewById(R.id.AdrLieu);
         adapterLieux = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, listeLieuxStr);
         adapterLieux.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
