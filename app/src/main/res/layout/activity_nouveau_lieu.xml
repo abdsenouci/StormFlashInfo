@@ -190,7 +190,7 @@
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/LunSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Lu2" />
 
             <Switch
                 android:id="@+id/MerSwitch"
@@ -203,7 +203,7 @@
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/MarSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Ma2" />
 
             <Switch
                 android:id="@+id/JeuSwitch"
@@ -216,7 +216,7 @@
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/MerSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Me2" />
 
             <Switch
                 android:id="@+id/VenSwitch"
@@ -224,12 +224,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:text="Vendredi"
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/JeuSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Je2" />
 
             <Switch
                 android:id="@+id/SamSwitch"
@@ -237,12 +236,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
                 android:text="Samedi"
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/VenSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Ve2" />
 
             <Switch
                 android:id="@+id/DimSwitch"
@@ -255,12 +253,12 @@
                 android:textOff="0"
                 android:textOn="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/SamSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Sa2" />
 
             <EditText
                 android:id="@+id/Lu2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="16dp"
@@ -272,31 +270,31 @@
             <EditText
                 android:id="@+id/Ma1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toStartOf="@+id/Ma2"
-                app:layout_constraintTop_toBottomOf="@+id/LunSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Lu2" />
 
             <EditText
                 android:id="@+id/Me1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toStartOf="@+id/Me2"
-                app:layout_constraintTop_toBottomOf="@+id/MarSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Ma2" />
 
             <EditText
                 android:id="@+id/Lu1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="16dp"
@@ -308,122 +306,122 @@
             <EditText
                 android:id="@+id/Je1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toStartOf="@+id/Je2"
-                app:layout_constraintTop_toBottomOf="@+id/MerSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Me2" />
 
             <EditText
                 android:id="@+id/Me2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/MarSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Ma2" />
 
             <EditText
                 android:id="@+id/Ve1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toStartOf="@+id/Ve2"
-                app:layout_constraintTop_toBottomOf="@+id/JeuSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Je2" />
 
             <EditText
                 android:id="@+id/Sa1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toStartOf="@+id/Sa2"
-                app:layout_constraintTop_toBottomOf="@+id/VenSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Ve2" />
 
             <EditText
                 android:id="@+id/Di1"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toStartOf="@+id/Di2"
-                app:layout_constraintTop_toBottomOf="@+id/SamSwitch" />/>
+                app:layout_constraintTop_toBottomOf="@+id/Sa2" />/>
 
             <EditText
                 android:id="@+id/Je2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/MerSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Me2" />
 
             <EditText
                 android:id="@+id/Ve2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/JeuSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Je2" />
 
             <EditText
                 android:id="@+id/Sa2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/VenSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Ve2" />
 
             <EditText
                 android:id="@+id/Di2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/SamSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Sa2" />
 
             <EditText
                 android:id="@+id/Ma2"
                 android:layout_width="80dp"
-                android:layout_height="30dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="time"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/LunSwitch" />
+                app:layout_constraintTop_toBottomOf="@+id/Lu2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -446,6 +444,17 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/CpLieu" />
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="onClick"
+                android:text="Button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Di2" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
