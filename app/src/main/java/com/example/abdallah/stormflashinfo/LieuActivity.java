@@ -24,7 +24,10 @@ public class LieuActivity extends AppCompatActivity
         category = intent.getIntExtra("color",-1);
         context = this;
         colors = Utils.getColors(context, category);
-        this.initColors();
+        lieu = DataListes.Lieux.get(intent.getIntExtra("position", (-1)));
+        int positionHoraire = Horaire.getPositionHoraire(lieu.IdHor);
+        Horaire horaire = DataListes.Horaires.get(positionHoraire);
+        initColors();
         TextView Adr = findViewById(R.id.AdrView);
         TextView Tel = findViewById(R.id.TelView);
         TextView Lun = findViewById(R.id.LunView);
@@ -34,19 +37,17 @@ public class LieuActivity extends AppCompatActivity
         TextView Ven = findViewById(R.id.VenView);
         TextView Sam = findViewById(R.id.SamView);
         TextView Dim = findViewById(R.id.DimView);
-        lieu = DataListes.Lieux.get(intent.getIntExtra("position", (-1)));
-        int positionHoraire = Horaire.getPositionHoraire(lieu.IdHor);
-        Horaire horaire = DataListes.Horaires.get(positionHoraire);
+
 
         Adr.setText(lieu.AdresseLieu);
         Tel.setText(lieu.Tel);
-        horaire.setTextView(Lun, 0);
-        horaire.setTextView(Mar, 1);
-        horaire.setTextView(Mer, 2);
-        horaire.setTextView(Jeu, 3);
-        horaire.setTextView(Ven, 4);
-        horaire.setTextView(Sam, 5);
-        horaire.setTextView(Dim, 6);
+        horaire.setTextView(Lun, horaire.lundi);
+        horaire.setTextView(Mar, horaire.mardi);
+        horaire.setTextView(Mer, horaire.mercredi);
+        horaire.setTextView(Jeu, horaire.jeudi);
+        horaire.setTextView(Ven, horaire.vendredi);
+        horaire.setTextView(Sam, horaire.samedi);
+        horaire.setTextView(Dim, horaire.dimanche);
     }
 
     public void initColors()

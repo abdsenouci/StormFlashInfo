@@ -62,7 +62,7 @@ public class DataListes {
         for(String s:list)
         {
             parsed=s.split("_-_");
-            Horaires.add(new Horaire(Integer.valueOf(Integer.valueOf(parsed[0])), parsed[1], parsed[2], parsed[3], parsed[4], parsed[5], parsed[6], parsed[7]));
+            Horaires.add(new Horaire((Integer.valueOf(parsed[0])), parsed[1], parsed[2], parsed[3], parsed[4], parsed[5], parsed[6], parsed[7]));
         }
     }
 
