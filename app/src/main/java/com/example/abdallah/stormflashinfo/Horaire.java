@@ -1,22 +1,28 @@
 package com.example.abdallah.stormflashinfo;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Horaire {
+public class Horaire
+{
     public int IdHoraire;
-    String lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche;
-    public Horaire(int idHoraire, String lundi, String mardi, String mercredi, String jeudi, String vendredi, String samedi, String dimanche) {
+    public int [][]planning;
+
+
+    public Horaire(int idHoraire, String lundi, String mardi, String mercredi, String jeudi, String vendredi, String samedi, String dimanche)
+    {
         IdHoraire = idHoraire;
-        this.lundi=lundi;
-        this.mardi=mardi;
-        this.mercredi=mercredi;
-        this.jeudi=jeudi;
-        this.vendredi=vendredi;
-        this.samedi=samedi;
-        this.dimanche=dimanche;
+        planning = new int[7][3];
+        this.setJour(lundi,0);
+        this.setJour(mardi, 1);
+        this.setJour(mercredi, 2);
+        this.setJour(jeudi, 3);
+        this.setJour(vendredi, 4);
+        this.setJour(samedi, 5);
+        this.setJour(dimanche, 6);
     }
 
     public static int getPositionHoraire(int idHoraire)
@@ -32,33 +38,31 @@ public class Horaire {
         return position;
     }
 
-    private int[] setJour(String jour)
+    private void setJour(String jour, int index)
     {
-        int[] res = new int[3];
+
         if(jour.substring(0,1).equals("1"))
         {
-            String[] parsed = jour.split(".");
-            res[0]= Integer.valueOf(parsed[0]);
-            res[1]= Integer.valueOf(parsed[1]);
-            res[2]= Integer.valueOf(parsed[2]);
-        }else
-        {
-            res[0]= Integer.valueOf(jour.substring(0,1));
+            String[] parsed = jour.split("µ");
+            planning[index][0]= Integer.valueOf(parsed[0]);
+            planning[index][1]= Integer.valueOf(parsed[1]);
+            planning[index][2]= Integer.valueOf(parsed[2]);
         }
-        return res;
+        else
+        {
+            planning[index][0]= Integer.valueOf(jour.substring(0,1));
+        }
     }
 
-    public void setTextView(TextView tv, String jour)
+    public void setTextView(TextView tv, int index)
     {
-        int[] res = setJour(jour);
-        String reponse;
-        if (res[0]==1)
+        if (this.planning[index][0]==1)
         {
-            reponse = "de " + res[1] + "h à " + res[2] + "h";
+            String horaires = "de " + planning[index][1] + "h à " + planning[index][2] + "h";
+            tv.setText(horaires);
         }else
         {
-            reponse= "Fermé";
+            tv.setText("Fermé");
         }
-        tv.setText(reponse);
     }
 }

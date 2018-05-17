@@ -157,11 +157,11 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
 
         if(Day.isChecked())
         {
-            res =  1 + "." + two + "." + tree;
+            res =  1 + "µ" + two + "µ" + tree;
         }
         else
         {
-            res = 0 + ".";
+            res = 0 + "µ";
         }
 
         return (res);
