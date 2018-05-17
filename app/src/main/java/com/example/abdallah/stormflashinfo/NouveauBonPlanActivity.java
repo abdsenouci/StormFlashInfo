@@ -25,8 +25,8 @@ import java.util.List;
 public class NouveauBonPlanActivity extends AppCompatActivity implements View.OnClickListener
 {
     final String LOG = " NouveauBonPlanActivity";
-    static String FinalDateDeb;
-    static String FinalDateFin;
+    static String FinalDateDeb = "";
+    static String FinalDateFin = "";
 
     private DatePickerDialog.OnDateSetListener DateDebList;
     private DatePickerDialog.OnDateSetListener DateFinList;
@@ -213,22 +213,29 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                 finish();
             }
         });
-        taskInsert.execute("http://10.0.2.2:80/AjoutBonPlan2.php");
+        taskInsert.execute("http://10.0.2.2:8888/StormFlash/AjoutBonPlan2.php");
     }
 
     @Override
     public void onClick(View v)
     {
-        if (!ObjBonPlan.getText().toString().equals("") && !DescBonPlan.getText().toString().equals("") && !DateDeb.getText().toString().equals("")
-                && !DateFin.getText().toString().equals(""))
+        if (!ObjBonPlan.getText().toString().equals("") && !DescBonPlan.getText().toString().equals("") && !FinalDateDeb.equals("")
+                && !FinalDateFin.equals(""))
         {
             if (LieuId == -200)
             {
                 Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Veuillez selectionner un lieu", Toast.LENGTH_SHORT);
                 toast.show();
             }
-            else
+            else {
+                Log.e("11111111111111", ObjBonPlan.getText().toString());
+                Log.e("22222222222222", DescBonPlan.getText().toString());
+                Log.e("33333333333333", FinalDateDeb);
+                Log.e("44444444444444", FinalDateFin);
+                Log.e("55555555555555", String.valueOf(CategorieId));
+                Log.e("55555555555555", String.valueOf(LieuId));
                 execut_task_bonplan();
+            }
         }
         else
         {
