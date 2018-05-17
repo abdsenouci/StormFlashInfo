@@ -271,6 +271,8 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
             {
                 execut_task_lieu();
                 execut_task_horaires();
+                Toast toast = Toast.makeText(NouveauLieuActivity.this, "Le lieu a été ajouté", Toast.LENGTH_SHORT);
+                toast.show();
             }
             else
             {

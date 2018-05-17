@@ -6,6 +6,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -40,7 +41,9 @@ public class LieuActivity extends AppCompatActivity
 
 
         Adr.setText(lieu.AdresseLieu);
-        Tel.setText(lieu.Tel);
+        Tel.setText(String.valueOf(lieu.Tel));
+
+        Log.e("AAAAAAAAAAAAAAAA", horaire.lundi);
         horaire.setTextView(Lun, horaire.lundi);
         horaire.setTextView(Mar, horaire.mardi);
         horaire.setTextView(Mer, horaire.mercredi);

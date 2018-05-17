@@ -235,6 +235,8 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                 Log.e("55555555555555", String.valueOf(CategorieId));
                 Log.e("55555555555555", String.valueOf(LieuId));
                 execut_task_bonplan();
+                Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Le bonplan a bien été ajouté", Toast.LENGTH_SHORT);
+                toast.show();
             }
         }
         else
