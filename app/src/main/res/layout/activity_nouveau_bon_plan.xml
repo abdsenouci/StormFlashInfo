@@ -231,30 +231,31 @@
                 app:layout_constraintTop_toBottomOf="@+id/DateDeb" />
 
             <Button
-                android:id="@+id/btnInsert"
+                android:id="@+id/btnInsertBP"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="60dp"
                 android:background="@color/colorAccent"
                 android:text="@string/envoyer"
-                app:layout_constraintBottom_toTopOf="@+id/button5"
+                app:layout_constraintBottom_toTopOf="@+id/btnAnnulerBP"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/DateFin" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btnAnnulerBP"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginBottom="60dp"
                 android:background="@color/neutreBoutons"
+                android:onClick="btnAnnuler"
                 android:text="@string/annuler"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnInsert" />
+                app:layout_constraintTop_toBottomOf="@+id/btnInsertBP" />
 
             <!--<Button
                android:id="@+id/DateDeb"

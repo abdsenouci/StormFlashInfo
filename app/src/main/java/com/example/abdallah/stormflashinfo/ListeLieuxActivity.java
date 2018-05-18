@@ -31,6 +31,8 @@ public class ListeLieuxActivity extends AppCompatActivity
         layout = findViewById(R.id.linearLieu);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = Utils.getColors(context, category);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        Utils.setTitle(toolbar,DataListes.Categories[intent.getIntExtra("color",-1)]);
         genererListe();
         initColors();
         newLieu();
@@ -39,6 +41,8 @@ public class ListeLieuxActivity extends AppCompatActivity
     public void genererListe()
     {
         String data;
+        String strHoraire;
+        String[] parsedHoraire;
         for(int i = 0; i < DataListes.Lieux.size(); i++)
         {
             if (DataListes.Lieux.get(i).IdCat == category)
@@ -46,7 +50,16 @@ public class ListeLieuxActivity extends AppCompatActivity
                 TextView txt = new TextView(this);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(10, 5, 5, 10);
-                data = DataListes.Lieux.get(i).NomLieu + "\n" + DataListes.Lieux.get(i).AdresseLieu + "\n Horaires : ";
+                strHoraire = Horaire.getHoraireById(DataListes.Lieux.get(i).IdHor).lundi;
+                if(strHoraire.substring(0,1).equals("1"))
+                {
+                    parsedHoraire = strHoraire.split("µ");
+                    strHoraire = parsedHoraire[1]+"h à "+parsedHoraire[2]+"h";
+                }else
+                {
+                    strHoraire = "Fermé";
+                }
+                data = DataListes.Lieux.get(i).NomLieu + "\n" + DataListes.Lieux.get(i).AdresseLieu + "\n Horaires : "+strHoraire;
                 txt.setText(data);
                 txt.setId(i);
                 txt.setBackgroundColor(colors[1]);

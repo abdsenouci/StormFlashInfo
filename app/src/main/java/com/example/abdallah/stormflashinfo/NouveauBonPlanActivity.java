@@ -90,7 +90,8 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
         spinnerLieux.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                LieuId = DataListes.Lieux.get(position).IdLieu;
+                //LieuId = DataListes.Lieux.get(position).IdLieu;
+                LieuId = DataListes.Lieux.get(Lieu.getPositionByName(adapterLieux.getItem(position))).IdLieu;
             }
 
             @Override
@@ -163,7 +164,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             }
         };
 
-        btnInsert = findViewById(R.id.btnInsert);
+        btnInsert = findViewById(R.id.btnInsertBP);
         btnInsert.setOnClickListener(this);
     }
 
@@ -235,7 +236,7 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
                 Log.e("55555555555555", String.valueOf(CategorieId));
                 Log.e("55555555555555", String.valueOf(LieuId));
                 execut_task_bonplan();
-                Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Le bonplan a bien été ajouté", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Le bon plan a bien été ajouté", Toast.LENGTH_SHORT);
                 toast.show();
             }
         }
@@ -244,5 +245,10 @@ public class NouveauBonPlanActivity extends AppCompatActivity implements View.On
             Toast toast = Toast.makeText(NouveauBonPlanActivity.this, "Veuillez remplir tout les champs du bonplan", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    public void btnAnnuler(View v)
+    {
+        this.finish();
     }
 }

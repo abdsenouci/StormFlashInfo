@@ -26,6 +26,8 @@ public class LieuActivity extends AppCompatActivity
         context = this;
         colors = Utils.getColors(context, category);
         lieu = DataListes.Lieux.get(intent.getIntExtra("position", (-1)));
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        Utils.setTitle(toolbar,lieu.NomLieu);
         int positionHoraire = Horaire.getPositionHoraire(lieu.IdHor);
         Horaire horaire = DataListes.Horaires.get(positionHoraire);
         initColors();
@@ -41,7 +43,8 @@ public class LieuActivity extends AppCompatActivity
 
 
         Adr.setText(lieu.AdresseLieu);
-        Tel.setText(String.valueOf(lieu.Tel));
+        String strHoraire="0"+String.valueOf(lieu.Tel);
+        Tel.setText(strHoraire);
 
         Log.e("AAAAAAAAAAAAAAAA", horaire.lundi);
         horaire.setTextView(Lun, horaire.lundi);

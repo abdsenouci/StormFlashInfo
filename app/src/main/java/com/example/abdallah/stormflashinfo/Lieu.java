@@ -21,4 +21,17 @@ public class Lieu
         IdHor = idHor;
     }
 
+    public static int getPositionByName(String nom)
+    {
+        int res = 0;
+        for (int i=0;i<DataListes.Lieux.size();i++)
+        {
+            if(DataListes.Lieux.get(i).NomLieu.equals(nom))
+            {
+                res=i;
+            }
+        }
+        return res;
+    }
+
 }

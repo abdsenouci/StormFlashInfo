@@ -18,6 +18,23 @@ public class Horaire {
         this.samedi=samedi;
         this.dimanche=dimanche;
     }
+    public Horaire()
+    {
+
+    }
+
+    public static Horaire getHoraireById(int id)
+    {
+        Horaire hor=new Horaire();
+        for (Horaire h :DataListes.Horaires)
+        {
+            if(h.IdHoraire==id)
+            {
+                hor=h;
+            }
+        }
+        return hor;
+    }
 
     public static int getPositionHoraire(int idHoraire)
     {

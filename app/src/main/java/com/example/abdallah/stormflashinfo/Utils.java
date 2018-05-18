@@ -1,7 +1,11 @@
 package com.example.abdallah.stormflashinfo;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 
 public class Utils {
     public static int[] getColors(Context context, int colorCode) {
@@ -49,5 +53,11 @@ public class Utils {
                 break;
         }
         return colors;
+    }
+
+    @TargetApi(21)
+    public static void setTitle(Toolbar tb, String title)
+    {
+        tb.setTitle(title);
     }
 }

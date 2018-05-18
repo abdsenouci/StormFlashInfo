@@ -10,16 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import android.os.AsyncTask;
 import android.widget.TextView;
-import android.widget.Toast;
-import java.util.concurrent.TimeUnit;
-
 
 
 public class ListeBonPlansActivity extends AppCompatActivity
@@ -41,6 +32,8 @@ public class ListeBonPlansActivity extends AppCompatActivity
         layout = findViewById(R.id.linearBonPlan);
         layout.setBackgroundColor(ContextCompat.getColor(this,android.R.color.white));
         colors = Utils.getColors(context, category);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        Utils.setTitle(toolbar,DataListes.Categories[intent.getIntExtra("color",-1)]);
 
        genererListe();
 

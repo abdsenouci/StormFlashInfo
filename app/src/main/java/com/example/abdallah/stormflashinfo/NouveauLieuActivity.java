@@ -145,7 +145,7 @@ public class NouveauLieuActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        btnInsert = findViewById(R.id.btnSend);
+        btnInsert = findViewById(R.id.btnAnnulerLieu);
         //btnInsert.setOnClickListener(this);
     }
 

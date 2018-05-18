@@ -21,6 +21,8 @@ public class BonPlanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bon_plan);
         Intent intent = getIntent();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        Utils.setTitle(toolbar,DataListes.Categories[intent.getIntExtra("color",-1)]);
         category = intent.getIntExtra("color",-1);
         context = this;
         colors = Utils.getColors(context, category);
@@ -34,7 +36,7 @@ public class BonPlanActivity extends AppCompatActivity {
 
         obj.setText(bp.ObjBonPlan);
         nomLieu.setText(bp.NomLieu);
-        periode.setText(bp.DateDeb);
+        periode.setText("du "+bp.DateDeb+" au "+bp.DateFin);
         desc.setText(bp.DescBonPlan);
 
     }

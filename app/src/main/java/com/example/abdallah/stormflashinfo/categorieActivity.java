@@ -20,6 +20,8 @@ public class categorieActivity extends AppCompatActivity {
         category = intent.getIntExtra("color",-1);
         int[] colors = Utils.getColors(this,category);
         initColors(colors);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        Utils.setTitle(toolbar,DataListes.Categories[intent.getIntExtra("color",-1)]);
     }
 
     public void initColors(int[] colors){
